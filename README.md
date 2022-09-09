@@ -2,7 +2,7 @@
 
 ## Description
 
-OpenReview provides users customer reviews on different local businesses and services, along with statiscal insight of businesses sales and customer experience
+OpenReview provides users with customer reviews on different local businesses and services, along with statiscal insight of businesses sales and customer experience
 over any period of time. In addition, OpenReview shows what product is trending and sentimental analysis
 with the help of natural language processing.
 
