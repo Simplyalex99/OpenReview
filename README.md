@@ -13,8 +13,14 @@ Clone the repository, go to the root of the directory and run the following comm
 ```
 docker-compose build
 docker-compose up
+```
 
+OR
 
+Go to /frontend directory and run the following command:
+
+```
+npm run dev
 ```
 
 This will launch the project at port 3000 (http://localhost:3000)
