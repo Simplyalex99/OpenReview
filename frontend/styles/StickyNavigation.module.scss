@@ -1,0 +1,17 @@
+$transition: 300ms ease-in-out;
+.scroll-up {
+  transition: $transition;
+}
+.scroll-down {
+  transform: translate3d(0, -100%, 0);
+  transition: $transition;
+}
+.drop-shadow {
+  filter: drop-shadow(0 -10px 20px rgb(170, 170, 170));
+}
+.sticky-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
