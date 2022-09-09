@@ -25,6 +25,14 @@ npm run dev
 
 This will launch the project at port 3000 (http://localhost:3000)
 
+To enable prettier auto formatting and lint testing run the following inside /frontend folder
+
+```
+npm run format:fix
+npm run format
+npm run lint
+```
+
 ## Motivation
 
 I was inspired to create this app when I saw Yelp's website and Niarra Travel. I saw the opportunity to enchance yelp's review by tieing in statistics of businesses sales and trending products with the help of natural language procesing which is growing. i also wanted to make a very beautiful and interactive website like Niarra Travel.
