@@ -1,0 +1,21 @@
+{
+  "name": "openreview",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "cd ./frontend && npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Simplyalex99/OpenReview.git"
+  },
+  "keywords": [],
+  "author": "Simplyalex99",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Simplyalex99/OpenReview/issues"
+  },
+  "homepage": "https://github.com/Simplyalex99/OpenReview#readme"
+}
