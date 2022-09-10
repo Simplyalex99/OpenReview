@@ -2,14 +2,13 @@
   margin: 2em;
 
   section.hero {
-    //animation: introLoad 3s forwards;
     height: 90vh;
-    // z-index: 99;
-
-    //margin-bottom: 10em
     color: white;
-
     position: sticky;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    margin-bottom: 5em;
     .accent-svg {
       display: absolute;
       transform: translate(0%, -370%);
@@ -22,12 +21,12 @@
     }
     .sub-heading {
       font-size: 1.3rem;
-      margin-top: 10em;
+      margin-top: 2em;
       font-weight: 200;
       margin-bottom: 1.3em;
     }
     .scroll-wrapper {
-      margin-top: 10em;
+      margin-top: 5em;
 
       text-align: left;
       svg {
@@ -39,17 +38,17 @@
   }
   .action-btn-wrapper {
     .action-btn {
-      color: white;
-
-      background: none;
-      border: 1px solid white;
+      color: rgba(0, 0, 0, 0.7);
+      background-color: white;
+      border: none;
       padding: 0.5em;
       height: 36px;
       width: 80%;
       font-size: 1rem;
       &:hover {
-        color: rgba(0, 0, 0, 0.5);
-        background-color: white;
+        background: none;
+        color: white;
+        border: 1px solid white;
         transition: background-color 200ms ease-out;
       }
     }
@@ -67,20 +66,10 @@
       opacity: 0;
       transform: translateX(-200px);
     }
-    .reverse-scroll-out[data-scroll] {
-      transition: all 2s;
-    }
-    .reverse-scroll-out[data-scroll='in'] {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    .reverse-scroll-out[data-scroll='out'] {
-      opacity: 0;
-      transform: translateX(200px);
-    }
+
     padding-bottom: 2em;
     .feature {
-      margin-bottom: 4em;
+      margin-bottom: 6em;
 
       svg {
         width: 100%;
@@ -163,6 +152,7 @@
     text-align: center;
     section.hero {
       text-align: center;
+      margin-bottom: 10em;
       .scroll-wrapper {
         text-align: center !important;
       }
@@ -201,7 +191,7 @@
         text-align: center;
       }
       .sub-heading {
-        margin-top: 12em;
+        margin-top: 6em;
       }
     }
     .more-info {
@@ -210,7 +200,7 @@
         grid-template-columns: repeat(2, auto);
         grid-template-areas: 'left right';
 
-        margin-bottom: 3em;
+        margin-bottom: 10em;
         svg {
           width: 30em !important;
           justify-self: right;

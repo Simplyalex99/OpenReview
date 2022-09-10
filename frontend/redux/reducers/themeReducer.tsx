@@ -1,4 +1,5 @@
 import { THEME_ACTION_TYPES } from '../actions/themeActionTypes';
+
 type actionPayloadProps = {
   darkMode: boolean;
 };

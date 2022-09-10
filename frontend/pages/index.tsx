@@ -29,14 +29,13 @@ const Home: NextPageWithLayout = () => {
   const ref = useRef<HTMLDivElement>(null);
 
   useParallaxEffect(ref, {
-    speed: 10,
+    speed: 5,
     center: true,
     wrapper: '',
     round: true,
     vertical: true,
     horizontal: false,
   });
-  useScrollOut({ options: { targets: homeStyles['reverse-scroll-out'] } });
   useScrollOut({});
 
   const toggleHandler = () => {
@@ -60,7 +59,7 @@ const Home: NextPageWithLayout = () => {
 
       <div className={homeStyles.wrapper}>
         <section className={`  ${homeStyles.hero} `}>
-          <div ref={ref}>
+          <div ref={ref} className={homeStyles.parallax}>
             <p className={homeStyles['sub-heading']}>
               Connecting you with the best services
             </p>
@@ -112,7 +111,7 @@ const Home: NextPageWithLayout = () => {
             </div>
             <div
               data-scroll
-              className={`${homeStyles['reverse-scroll-out']} ${homeStyles.feature} ${homeStyles.right} `}
+              className={`${homeStyles.feature} ${homeStyles.right}`}
             >
               <DarkModeSVG />
               <div
