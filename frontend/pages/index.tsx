@@ -29,7 +29,7 @@ const Home: NextPageWithLayout = () => {
   const ref = useRef<HTMLDivElement>(null);
 
   useParallaxEffect(ref, {
-    speed: 5,
+    speed: 7,
     center: true,
     wrapper: '',
     round: true,
