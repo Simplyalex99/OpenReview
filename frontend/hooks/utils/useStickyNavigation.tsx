@@ -3,7 +3,7 @@ import stickyNavigationStyle from '../../styles/StickyNavigation.module.scss';
 
 interface StickyNavigationProps {
   navbarId: string;
-  state?: Array<any>;
+  state?: any;
   disable?: boolean;
 }
 export const useStickyNavigation = ({
@@ -46,6 +46,6 @@ export const useStickyNavigation = ({
         window?.removeEventListener('scroll', listener);
       };
     }
-  }, [state]);
+  }, state);
 };
 export default useStickyNavigation;

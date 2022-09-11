@@ -29,14 +29,14 @@ const Home: NextPageWithLayout = () => {
   const ref = useRef<HTMLDivElement>(null);
 
   useParallaxEffect(ref, {
-    speed: 7,
+    speed: 4,
     center: true,
     wrapper: '',
     round: true,
     vertical: true,
     horizontal: false,
   });
-  useScrollOut({});
+  useScrollOut({ options: { once: true } });
 
   const toggleHandler = () => {
     if (darkMode) {
