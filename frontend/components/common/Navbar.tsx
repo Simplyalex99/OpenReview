@@ -74,7 +74,7 @@ export const Navbar = () => {
   useToggleNavbarMenu(toggleProps);
   useStickyNavigation({
     navbarId: 'navbar',
-    state: [darkMode],
+    state: darkMode,
     disable: toggleMenu,
   });
   return (
