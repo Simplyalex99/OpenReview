@@ -162,6 +162,9 @@
     margin-bottom: 0 !important;
 
     .custom-link-wrapper {
+      .custom-link {
+        margin-left: 0;
+      }
       svg {
         display: none;
       }
