@@ -1,6 +1,6 @@
 .navbar-bg {
   z-index: 900;
-  height: 90px;
+  height: 80px;
   position: fixed;
   top: 0;
   left: 0;
@@ -12,6 +12,7 @@
     z-index: 999;
     fill: white;
     stroke: white;
+
     path {
       fill: white;
       stroke: white;
@@ -53,6 +54,7 @@
 
     background: none;
     border: none;
+    display: none;
   }
 
   .nav-container {
@@ -161,6 +163,9 @@
     .custom-link-wrapper {
       svg {
         display: none;
+      }
+      .custom-link {
+        display: unset;
       }
     }
 
