@@ -3,17 +3,15 @@ import stickyNavigationStyle from '../../styles/StickyNavigation.module.scss';
 
 interface StickyNavigationProps {
   navbarId: string;
-  state?: any;
-  disable?: boolean;
+  dependencies?: any[];
 }
 export const useStickyNavigation = ({
   navbarId,
-  disable,
-  state,
+  dependencies,
 }: StickyNavigationProps) => {
   let lastScroll = 0;
   useEffect(() => {
-    if (process.browser && disable) {
+    if (process.browser) {
       const navbar = document.getElementById(navbarId);
       if (!navbar?.classList.contains(stickyNavigationStyle['sticky-navbar'])) {
         navbar?.classList.add(stickyNavigationStyle['sticky-navbar']);
@@ -46,6 +44,6 @@ export const useStickyNavigation = ({
         window?.removeEventListener('scroll', listener);
       };
     }
-  }, state);
+  }, [dependencies]);
 };
 export default useStickyNavigation;
