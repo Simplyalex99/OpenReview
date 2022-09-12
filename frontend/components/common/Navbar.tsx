@@ -10,7 +10,6 @@ import {
 } from '../../redux/actions/themeActionCreator';
 import {
   useToggleNavbarMenu,
-  useStickyNavigation,
   useAppSelector,
   useAppDispatch,
 } from '../../hooks/index';
@@ -50,13 +49,6 @@ export const Navbar = () => {
   const getIsActive = (type: activeTabType) => {
     return activeTab === type ? navbarStyles['active-tab'] : '';
   };
-  const [toggleMenu, setToggleMenu] = useState<boolean>(true);
-  const toggleMenuHandler = () => {
-    setToggleMenu(false);
-  };
-  const closeHandler = () => {
-    setToggleMenu(true);
-  };
   const switchHandler = () => {
     if (darkMode) {
       dispatch(toggleLightMode());
@@ -72,11 +64,6 @@ export const Navbar = () => {
   };
 
   useToggleNavbarMenu(toggleProps);
-  useStickyNavigation({
-    navbarId: 'navbar',
-    state: darkMode,
-    disable: toggleMenu,
-  });
   return (
     <div
       id="navbar"
@@ -92,10 +79,7 @@ export const Navbar = () => {
         <div className={`flex ${navbarStyles['custom-link-wrapper']}`}>
           <div
             id="menu-wrapper"
-            role="button"
-            tabIndex={0}
-            onClick={toggleMenuHandler}
-            onKeyDown={toggleMenuHandler}
+            role="presentation"
             className={`${
               darkMode
                 ? navbarStyles['menu-wrapper-dark']
@@ -129,11 +113,8 @@ export const Navbar = () => {
               `}
         >
           <div
-            role="button"
-            onKeyDown={closeHandler}
-            tabIndex={0}
+            role="presentation"
             id="close"
-            onClick={closeHandler}
             className={navbarStyles['close-icon-wrapper']}
           >
             <CloseSVG
