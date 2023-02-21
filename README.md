@@ -140,10 +140,10 @@ I used real data to see model the performance by gettings reviews through Yelp's
 
 #### What were the assumptions about model and how did you validate those assumptions?
 
-I assumed features are independent- I used a heatmap to verify this. I also assumed distribution is the same after performing random oversampling- I checked disitrubiton of each feature before and after performing oversampling and we see it remains same. I also assumed for our model every feature is equally standarize-that no feature scale impacts negatively. I normalized the data for this. I also assumed that there is a seperate linear boundary for our model to work well with overlapping features in the dataset. This was confirmed by performing PCA and visualization.
+I assumed that the features from the dataset are independent- I used a heatmap to verify this. I also assumed distribution is the same after performing random oversampling- I checked the disitrubiton of each feature before and after performing oversampling and it remained the same. This is important so that the model is not bias. I also assumed for our model every feature is equally standarize-that no feature scale impacts negatively. I normalized the data for this. I also assumed that there is a seperate linear boundary for our model to work well with overlapping features in the dataset. This was confirmed by performing PCA and visualization.
 
-#### How did we optimze our model? 
-I tried to find optimal hyperparamter using random gridsearch cv. We also performed cross validation to check for any over fitting. We also did feature selection and remove any feature that affect model negatively.
+#### How did we optimize our model? 
+I tried to find optimal hyperparamter using random gridsearch cv. We also performed cross validation to check for any overfitting. We also did feature selection and remove any feature that affect model negatively.
 
 #### How did we implement our test and control?
 I ran metrics for precision accuracy and recall using sklearn's metrics library.
