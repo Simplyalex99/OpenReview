@@ -128,7 +128,7 @@ I manually selected the topics based on the important words however other visual
 In this section I will give a summary of my approach to the main problem machine learning problem of predicting a business success based on customer reviews and ratings.
 
 #### What model to pick?
-I choose SVM rbf because it classifier model compared to other models but also handles non linear relationship and since we have many features SVM works well in higher dimension than other models which prone to overfitting and there is some overlapping in the dataset.
+I choose SVM rbf since this is a binary classification problem but also this model handles non linear relationship with overlapping data. Since the data has many features SVM works well in higher dimension than other models which are prone to overfitting.
 
 #### How did we clean our data?
 I first performed random oversampling since there was uneven amount of label classes. This was needed so that we have a balance dataset and even amount of targets for our model to not be affected. After this, we performed text cleaning process- removal of non english characters, stop words removal and lemmatization. We chose lemmatization since our dataset is not large and we want meaningful words from root.
