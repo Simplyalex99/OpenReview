@@ -104,6 +104,7 @@ and then performed Pearson’s Correlation Coefficient formula. The closer the c
 
 
 <img alt="Pearson Correlation Table" src="https://github.com/Simplyalex99/OpenReview/blob/feat/docs/README_images/algorithms/correlation_table.png" width="300" height="190">
+
 #### Categorizing reviews
 I first performed Principal Component Analysis which reduces the number of features in a dataset with components that can represent a group of closely related features. Initially I tried 2-3 components and visualized it with the help of seaborn however there was very little organized clusters. So I tried n components that would explain 90% of the data's variance and after tried 2 components with T-distributed Stochastic Neighbor Embedding (TSNE). This resulted in the following below:
 
