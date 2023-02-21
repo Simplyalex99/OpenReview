@@ -113,12 +113,12 @@ This resulted in better clusters. I then performed KClusters with 1-10 clusters 
 <img alt="KNN Elbow" src="https://github.com/Simplyalex99/OpenReview/blob/feat/docs/README_images/algorithms/knn_elbow.png" width="300" height="190">
 To find what these clusters represent- that is their catergory for these customer reviews, I used 
 Latent Dirichlet Allocation (LDA). This resulted in the following below:
+
 ```
 [(0, [('place', 0.10510771), ('food', 0.046063803), ('time', 0.025346957)]),
- (1,
-  [('location', 0.07435378), ('review', 0.067317665), ('time', 0.059451655)]),
- (2, [('pizza', 0.10592735), ('order', 0.067135364), ('car', 0.03214691)]),
- (3, [('service', 0.10965675), ('food', 0.10782263), ('year', 0.0693848)])]
+(1,[('location', 0.07435378), ('review', 0.067317665), ('time', 0.059451655)]),
+(2, [('pizza', 0.10592735), ('order', 0.067135364), ('car', 0.03214691)]),
+(3, [('service', 0.10965675), ('food', 0.10782263), ('year', 0.0693848)])]
 ```
 
 I manually selected the topics based on the important words however other visualization techniques such pyLDAvis could help get more accurate topics.
