@@ -160,7 +160,8 @@ The rbf kernel comes into play by transforming the data into higher dimensions t
 1. Accuracy of predicting a business success based on initial customer reviews and rating is 0.77 or 77% out of 100.
 2. Customer reviews from the dataset can be split into 4 categories or tags: others, food, experience, service.
 3. To give some examples , people who enjoy Italian restaurants also enjoy wine bars, and other Italian dishes like pizza. People who go to drugstores also enjoy cosmetics and beauty products and convenience store products.
-Lastly,
+Lastly, people who enjoy coffee and tea also enjoy breakfast and brunch, donuts, coffee roasteries, and kombucha.
+For new businesses, this can help give an idea of what makes some business good and related products.
 
 ## Tech-Stack
 
