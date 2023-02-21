@@ -1,0 +1,7 @@
+version: '3'
+services:
+  frontend:
+    command: dev
+    volumes:
+      - ./frontend:/app
+
