@@ -60,12 +60,12 @@ The data prepared was a combintation of Yelp's API that provides customer review
 #### Predicting Business Success
 The main attributes includes: the review text, the review rating , and score ( this was done through some feature enginnering to find if a business is doing well or not. This was inspired from the following article:https://github.com/vinayarun/BUSINESS-USE-CASE-FOR-NLP/blob/master/Vinay%20Arun_Business%20use%20case%20for%20NLP.pdf). Numerical columns were normalized so all features are within a common scale and prevent potential errors with large scale features, and categorical features were converted to numerical by a method called TF-IDF Vectorizer as this was better since frequency of a word such as "the" can negatively give false readings to our model as to what is a good review or not. Only  1200 features were considered from the TF-IDF vectorizer 
 were considered. Further analysis shows very little corelation between words using heatmap. 
-![dataset](https://github.com/Simplyalex99/OpenReview/docs/images/data_description/dataset_svm.png)
+![dataset](https://github.com/Simplyalex99/OpenReview/docs/README_images/data_description/dataset_svm.png)
 
 
 #### Business names and category Recommendation 
 The main attributes included the business rating and total reviews for that business.
-![dataset](https://github.com/Simplyalex99/OpenReview/docs/images/data_description/dataset_recommendation.png)
+![dataset](https://github.com/Simplyalex99/OpenReview/docs/README_images/data_description/dataset_recommendation.png)
 
 #### Categorizing reviews
 The main attribute is the text review from earlier dataset with predicting business sucess which is then preprocessed by removing stopwords, non english characters then extracting meaningful text words that are adjectives or nouns then lemmatizing the text reviews. Lemmmatization is used as it helps our model to predict better from common root words while preserving meaningful words whereas stemming can cut root words off such as caring and cart to car. In addition, bigrams were used to better group similar words and provide better trainning for the model.
@@ -79,7 +79,7 @@ Various binary classifcation algorithms were used such as KNearest Neighbors (KN
 RandomForest (RF), and Support Vector Machine(SVM). The models that performed well were KNN, SVM and RF. To optimize the models, RandomGridSearch was performed and the optimal hyperparameters
 was for SVM with rbf kernel and regularization of 1. This makes sense as rbf kernel works 
 well in high dimension with many features. 
-![grid search](https://github.com/Simplyalex99/OpenReview/docs/images/algorithms/grid_search.png)
+![grid search](https://github.com/Simplyalex99/OpenReview/docs/README_images/algorithms/grid_search.png)
 
 In addition, cross validation was done to check for overfitting and the model's validation accuracy remained around the same. 
 
@@ -103,16 +103,16 @@ C is the mean vote across all customer reviews from that whole business.
 
 As for business recommendation by category, I group the same business name by categories
 and then performed Pearson’s Correlation Coefficient. The formula is below:
-![Pearson Correlation](https://github.com/Simplyalex99/OpenReview/docs/images/algoritms/pearson_correlation_formula.png)
+![Pearson Correlation](https://github.com/Simplyalex99/OpenReview/docs/README_images/algoritms/pearson_correlation_formula.png)
 The closer the correlation coefficient is to 1 between any two variables variables, the more directly proportional they are to each other. If it is closer to -1 , these variables are inversely proportional to each other. And if it is  closer to 0, the variables have little to no correlation to each other. This resulted in the matrix as shown below:
 
-![Pearson Correlation Table](https://github.com/Simplyalex99/OpenReview/docs/images/algoritms/correlation_table.png)
+![Pearson Correlation Table](https://github.com/Simplyalex99/OpenReview/docs/README_images/algoritms/correlation_table.png)
 
 #### Categorizing reviews
 I first performed Principal Component Analysis which reduces the number of features in a dataset with components that can represent a group of closely related features. Initially I tried 2-3 components and visualized it with the help of seaborn however there was very little organized clusters. So I tried n components that would explain 90% of the data's variance and after tried 2 components with T-distributed Stochastic Neighbor Embedding (TSNE). This resulted in the following below:
-![PCA and TSNE ](https://github.com/Simplyalex99/OpenReview/docs/images/algoritms/pca_tsne.png)
+![PCA and TSNE ](https://github.com/Simplyalex99/OpenReview/docs/README_images/algoritms/pca_tsne.png)
 This resulted in better clusters. I then performed KClusters with 1-10 clusters to see if this agreed with the TSNE and PCA performed earlier and found the optimal to be 4 with the elbow technique as shown below. 
-![KNN Elbow Technique graph](https://github.com/Simplyalex99/OpenReview/docs/images/algoritms/knn_elbow.png)
+![KNN Elbow Technique graph](https://github.com/Simplyalex99/OpenReview/docs/README_images/algoritms/knn_elbow.png)
 To find what these clusters represent- that is their catergory for these customer reviews, I used 
 Latent Dirichlet Allocation (LDA). This resulted in the following below:
 ```
@@ -155,6 +155,14 @@ The idea behind SVM is finding a decision boundary where data can be seperated, 
 It does this by finding data points closest to the decision boundary. These points are called support vectors. The distance is then calculated from these support vectors and the decision boundary line through a  method called Euclidean Distance. This distance is called the margin which allows for a more accurate and generalized decision boundary.  The best margin is found through a technique called Cross Validation.
 
 The rbf kernel comes into play by transforming the data into higher dimensions to find better support vectors which leads to a more accurate decision boundary in scenarios when there is overlapping data which is the case for this problem of good business vs not good ones. It does this by finding the dot product and squared Euclidean Distance of all the features in the dataset and then performing SVM. The mapping of features into higher dimension happens through the rbf kernel function which can be expressed as K(x,y)= exp(1/2 * -|x-y|^2/o^2). The output of this function is between 0-1. Values closer to 0 are very similar whereas anything else is less similar.
+
+## Final Results
+
+1. Accuracy of predicting a business success based on initial customer reviews and rating is 0.77 or 77% out of 100.
+2. Customer reviews from the dataset can be split into 4 categories or tags: others, food, experience, service.
+3. To give some examples , people who enjoy Italian restaurants also enjoy wine bars, and other Italian dishes like pizza. People who go to drugstores also enjoy cosmetics and beauty products and convenience store products.
+Lastly,
+
 ## Tech-Stack
 
 For this project I used Google Cloud Kubernetes, MongoDB, Docker, Flask, Next.js , Redis, Typescript and Sass.
