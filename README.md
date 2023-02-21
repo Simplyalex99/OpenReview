@@ -1,16 +1,16 @@
 # Business Insight Data Anayltic App
 
 ## Table Of Contents
-1. Description
-2. Set-Up
-3. Project Summary
-4. Data Description
-5. Algorithms
-6. Project Anaylsis
-7. Final Results
-8. Tech-Stack
-9. Motivation
-10. Challenges
+1. [Description](https://github.com/Simplyalex99/OpenReview/tree/feat#description)
+2. [Set-Up](https://github.com/Simplyalex99/OpenReview/tree/feat#set-up)
+3. [Project Summary](https://github.com/Simplyalex99/OpenReview/tree/feat#project-summary)
+4. [Data Description](https://github.com/Simplyalex99/OpenReview/tree/feat#data-description)
+5. [Algorithms](https://github.com/Simplyalex99/OpenReview/tree/feat#algorithms)
+6. [Project Anaylsis](https://github.com/Simplyalex99/OpenReview/tree/feat#project-anaylsis)
+7. [Final Results](https://github.com/Simplyalex99/OpenReview/tree/feat#final-results)
+8. [Tech-Stack](https://github.com/Simplyalex99/OpenReview/tree/feat#tech-stack)
+9. [Motivation](https://github.com/Simplyalex99/OpenReview/tree/feat#motivation)
+10. [Challenges](https://github.com/Simplyalex99/OpenReview/tree/feat#challenges)
 
 ## Description
 
@@ -60,7 +60,7 @@ The data prepared was a combintation of Yelp's API that provides customer review
 #### Predicting Business Success
 The main attributes includes: the review text, the review rating , and score ( this was done through some feature enginnering to find if a business is doing well or not. This was inspired from the following article:https://github.com/vinayarun/BUSINESS-USE-CASE-FOR-NLP/blob/master/Vinay%20Arun_Business%20use%20case%20for%20NLP.pdf). Numerical columns were normalized so all features are within a common scale and prevent potential errors with large scale features, and categorical features were converted to numerical by a method called TF-IDF Vectorizer as this was better since frequency of a word such as "the" can negatively give false readings to our model as to what is a good review or not. Only  1200 features were considered from the TF-IDF vectorizer 
 were considered. Further analysis shows very little corelation between words using heatmap. 
-![dataset](https://github.com/Simplyalex99/OpenReview/docs/README_images/data_description/dataset_svm.png)
+![dataset](https://github.com/Simplyalex99/OpenReview/blob/feat/docs/README_images/data_description/dataset_svm.png | width=100)
 
 
 #### Business names and category Recommendation 
