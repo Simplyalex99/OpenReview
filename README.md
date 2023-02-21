@@ -60,12 +60,11 @@ The data prepared was a combintation of Yelp's API that provides customer review
 #### Predicting Business Success
 The main attributes includes: the review text, the review rating , and score ( this was done through some feature enginnering to find if a business is doing well or not. This was inspired from the following article:https://github.com/vinayarun/BUSINESS-USE-CASE-FOR-NLP/blob/master/Vinay%20Arun_Business%20use%20case%20for%20NLP.pdf). Numerical columns were normalized so all features are within a common scale and prevent potential errors with large scale features, and categorical features were converted to numerical by a method called TF-IDF Vectorizer as this was better since frequency of a word such as "the" can negatively give false readings to our model as to what is a good review or not. Only  1200 features were considered from the TF-IDF vectorizer 
 were considered. Further analysis shows very little corelation between words using heatmap. 
-![dataset](https://github.com/Simplyalex99/OpenReview/blob/feat/docs/README_images/data_description/dataset_svm.png | width=100)
+
 
 
 #### Business names and category Recommendation 
 The main attributes included the business rating and total reviews for that business.
-![dataset](https://github.com/Simplyalex99/OpenReview/docs/README_images/data_description/dataset_recommendation.png)
 
 #### Categorizing reviews
 The main attribute is the text review from earlier dataset with predicting business sucess which is then preprocessed by removing stopwords, non english characters then extracting meaningful text words that are adjectives or nouns then lemmatizing the text reviews. Lemmmatization is used as it helps our model to predict better from common root words while preserving meaningful words whereas stemming can cut root words off such as caring and cart to car. In addition, bigrams were used to better group similar words and provide better trainning for the model.
@@ -79,8 +78,7 @@ Various binary classifcation algorithms were used such as KNearest Neighbors (KN
 RandomForest (RF), and Support Vector Machine(SVM). The models that performed well were KNN, SVM and RF. To optimize the models, RandomGridSearch was performed and the optimal hyperparameters
 was for SVM with rbf kernel and regularization of 1. This makes sense as rbf kernel works 
 well in high dimension with many features. 
-![grid search](https://github.com/Simplyalex99/OpenReview/docs/README_images/algorithms/grid_search.png)
-
+<img alt="grid search" src="https://github.com/Simplyalex99/OpenReview/blob/feat/docs/README_images/algorithms/grid_search.png" width="100" height="100">
 In addition, cross validation was done to check for overfitting and the model's validation accuracy remained around the same. 
 
 And also feature selection was done by manually looking at features that do not make sense such as "im" and "tof" that do not help the model. These features were dropped reducing the total features to 1144. The accuracy remained the same as these features have little to no significance. Other feature selection methods such as forward selection, recursive elimination and chi-square test could have been used but due to the nature of rbf kernel this was not possible.
@@ -102,17 +100,17 @@ R is the average rating of the business;
 C is the mean vote across all customer reviews from that whole business.
 
 As for business recommendation by category, I group the same business name by categories
-and then performed Pearson’s Correlation Coefficient. The formula is below:
-![Pearson Correlation](https://github.com/Simplyalex99/OpenReview/docs/README_images/algoritms/pearson_correlation_formula.png)
-The closer the correlation coefficient is to 1 between any two variables variables, the more directly proportional they are to each other. If it is closer to -1 , these variables are inversely proportional to each other. And if it is  closer to 0, the variables have little to no correlation to each other. This resulted in the matrix as shown below:
+and then performed Pearson’s Correlation Coefficient formula. The closer the correlation coefficient is to 1 between any two variables variables, the more directly proportional they are to each other. If it is closer to -1 , these variables are inversely proportional to each other. And if it is  closer to 0, the variables have little to no correlation to each other. This resulted in the matrix as shown below:
 
-![Pearson Correlation Table](https://github.com/Simplyalex99/OpenReview/docs/README_images/algoritms/correlation_table.png)
 
+<img alt="Pearson Correlation Table" src="https://github.com/Simplyalex99/OpenReview/blob/feat/docs/README_images/algorithms/correlation_table.png" width="100" height="100">
 #### Categorizing reviews
 I first performed Principal Component Analysis which reduces the number of features in a dataset with components that can represent a group of closely related features. Initially I tried 2-3 components and visualized it with the help of seaborn however there was very little organized clusters. So I tried n components that would explain 90% of the data's variance and after tried 2 components with T-distributed Stochastic Neighbor Embedding (TSNE). This resulted in the following below:
-![PCA and TSNE ](https://github.com/Simplyalex99/OpenReview/docs/README_images/algoritms/pca_tsne.png)
+
+<img alt="Graph of clusters" src="https://github.com/Simplyalex99/OpenReview/blob/feat/docs/README_images/algorithms/pca_tsne.png" width="100" height="100">
 This resulted in better clusters. I then performed KClusters with 1-10 clusters to see if this agreed with the TSNE and PCA performed earlier and found the optimal to be 4 with the elbow technique as shown below. 
-![KNN Elbow Technique graph](https://github.com/Simplyalex99/OpenReview/docs/README_images/algoritms/knn_elbow.png)
+
+<img alt="KNN Elbow" src="https://github.com/Simplyalex99/OpenReview/blob/feat/docs/README_images/algorithms/knn_elbow.png" width="100" height="100">
 To find what these clusters represent- that is their catergory for these customer reviews, I used 
 Latent Dirichlet Allocation (LDA). This resulted in the following below:
 ```
