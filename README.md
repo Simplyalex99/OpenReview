@@ -78,7 +78,7 @@ Various binary classifcation algorithms were used such as KNearest Neighbors (KN
 RandomForest (RF), and Support Vector Machine(SVM). The models that performed well were KNN, SVM and RF. To optimize the models, RandomGridSearch was performed and the optimal hyperparameters
 was for SVM with rbf kernel and regularization of 1. This makes sense as rbf kernel works 
 well in high dimension with many features. 
-<img alt="grid search" src="https://github.com/Simplyalex99/OpenReview/blob/feat/docs/README_images/algorithms/grid_search.png" width="100" height="100">
+<img alt="grid search" src="https://github.com/Simplyalex99/OpenReview/blob/feat/docs/README_images/algorithms/grid_search.png" width="300" height="190">
 In addition, cross validation was done to check for overfitting and the model's validation accuracy remained around the same. 
 
 And also feature selection was done by manually looking at features that do not make sense such as "im" and "tof" that do not help the model. These features were dropped reducing the total features to 1144. The accuracy remained the same as these features have little to no significance. Other feature selection methods such as forward selection, recursive elimination and chi-square test could have been used but due to the nature of rbf kernel this was not possible.
@@ -103,14 +103,14 @@ As for business recommendation by category, I group the same business name by ca
 and then performed Pearson’s Correlation Coefficient formula. The closer the correlation coefficient is to 1 between any two variables variables, the more directly proportional they are to each other. If it is closer to -1 , these variables are inversely proportional to each other. And if it is  closer to 0, the variables have little to no correlation to each other. This resulted in the matrix as shown below:
 
 
-<img alt="Pearson Correlation Table" src="https://github.com/Simplyalex99/OpenReview/blob/feat/docs/README_images/algorithms/correlation_table.png" width="100" height="100">
+<img alt="Pearson Correlation Table" src="https://github.com/Simplyalex99/OpenReview/blob/feat/docs/README_images/algorithms/correlation_table.png" width="300" height="190">
 #### Categorizing reviews
 I first performed Principal Component Analysis which reduces the number of features in a dataset with components that can represent a group of closely related features. Initially I tried 2-3 components and visualized it with the help of seaborn however there was very little organized clusters. So I tried n components that would explain 90% of the data's variance and after tried 2 components with T-distributed Stochastic Neighbor Embedding (TSNE). This resulted in the following below:
 
-<img alt="Graph of clusters" src="https://github.com/Simplyalex99/OpenReview/blob/feat/docs/README_images/algorithms/pca_tsne.png" width="100" height="100">
+<img alt="Graph of clusters" src="https://github.com/Simplyalex99/OpenReview/blob/feat/docs/README_images/algorithms/pca_tsne.png" width="300" height="190">
 This resulted in better clusters. I then performed KClusters with 1-10 clusters to see if this agreed with the TSNE and PCA performed earlier and found the optimal to be 4 with the elbow technique as shown below. 
 
-<img alt="KNN Elbow" src="https://github.com/Simplyalex99/OpenReview/blob/feat/docs/README_images/algorithms/knn_elbow.png" width="100" height="100">
+<img alt="KNN Elbow" src="https://github.com/Simplyalex99/OpenReview/blob/feat/docs/README_images/algorithms/knn_elbow.png" width="300" height="190">
 To find what these clusters represent- that is their catergory for these customer reviews, I used 
 Latent Dirichlet Allocation (LDA). This resulted in the following below:
 ```
@@ -119,7 +119,7 @@ Latent Dirichlet Allocation (LDA). This resulted in the following below:
   [('location', 0.07435378), ('review', 0.067317665), ('time', 0.059451655)]),
  (2, [('pizza', 0.10592735), ('order', 0.067135364), ('car', 0.03214691)]),
  (3, [('service', 0.10965675), ('food', 0.10782263), ('year', 0.0693848)])]
- ```
+```
 
 I manually selected the topics based on the important words however other visualization techniques such pyLDAvis could help get more accurate topics.
 
