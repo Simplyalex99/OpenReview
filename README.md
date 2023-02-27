@@ -50,7 +50,12 @@ The goal of this project is to provide businesses with key insights to make good
 2. Categorizing customer reviews by topics to gain deeper insight into different areas where the business is doing well or not
 3. Recommend similar competitor businesses by category and popularity.
 
-In each content of this document I will touch on all 3 machine learning problems.
+In each content of this document I will touch on all 3 machine learning problems. Below are the corresponding final results from the tasks mentioned above:
+
+1. Accuracy of predicting a business success based on initial customer reviews and rating is 0.77 or 77% out of 100.
+2. Customer reviews from the dataset can be split into 4 categories or topics: others, food, experience, service.
+3. To give some examples , people who enjoy Italian restaurants also enjoy wine bars, and other Italian dishes like pizza. People who go to drugstores also enjoy cosmetics and beauty products and convenience store products. Lastly, people who enjoy coffee and tea also enjoy breakfast and brunch, donuts, coffee roasteries, and kombucha. For new businesses, this can help give an idea of what makes some business good and related products.
+
 ## Data Description
 
 The data prepared was a combintation of Yelp's API that provides customer reviews on businesses, along with Kaggle dataset on Yelp's businesses and webscrapping with Selenium on tripadvisors.com. 
