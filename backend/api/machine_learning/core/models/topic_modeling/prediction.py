@@ -3,18 +3,12 @@ from gensim.models.ldamulticore import LdaMulticore
 from gensim.corpora import Dictionary
 lda_model = joblib.load('./api/machine_learning/assets/models/lda_model.sav')
 dictionary = joblib.load('./api/machine_learning/assets/models/lda_model_dictionary.sav')
-"""Send json data to a deployed model for prediction.
-  Args:
-    project (str): project where the Cloud ML Engine Model is deployed.
-    region (str): regional endpoint to use; set to None for ml.googleapis.com
-    model (str): model name.
-    instances ([Mapping[str: Any]]): Keys should be the names of Tensors
-        your deployed model expects as inputs. Values should be datatypes
-        convertible to Tensors, or (potentially nested) lists of datatypes
-        convertible to tensors.
-    version: str, version of the model to target.
-  Returns:
-    Mapping[str: any]: dictionary of prediction results defined by the
+"""Predicts the topics for each customer review.
+  @Args:
+    data (list[list[str]]): the preprocessed data from customers for the model.
+    reviews (list[list[str]]): the customer reviews.
+  @Returns:
+    List[Mapping[str: any]]: A list of dictionary of prediction results defined by the
         model.
 """
 def classify_data_top2_category(data,reviews):

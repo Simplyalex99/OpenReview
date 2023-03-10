@@ -5,18 +5,13 @@ import numpy as np
 import joblib
 from api.machine_learning.utils.pipeline_templates.prebuilt_tfidfvectorizer import PrebuiltTfidfVectorizer 
 tfidf_model = joblib.load('./api/machine_learning/assets/models/tfidf_model.sav') 
+"""Recommends popular business from the same category of the given input category.
+  @Args:
+    data_ (list[list[list[any]]]): The dataset storing the customer reviews and ratings seperately.
+  @Returns:
+    List[List[Union[str,float]]]: A 2d array storing the transformed data from the pipeline templates.
 """
-@desc: predicts business success based on customer reviews and ratings.
-
-@args:
-    data (List[List[int]]): Counter vectozier data of customer reviews merged with the customers ratings
-    model (Object): Support Vector Machine classifier instance.
-
-@returns:
-    int: 1 for successful
-    if majority of the prediction is 1 else 0 for unsuccesful.
-"""
-def preprocess_data(data_features):
+def preprocess_data(data_):
 
   # intializing attributes for the pipelines
   words_excluded = ['not','below','no']
@@ -38,7 +33,7 @@ def preprocess_data(data_features):
   for index, transformer in pipeline:
     data = None
     if index not in store:
-      store[index] = data_features[index]
+      store[index] = data_[index]
     data = store[index]
     transformed_data = transformer.transform(data)
     store[index] = transformed_data
@@ -50,5 +45,4 @@ def preprocess_data(data_features):
   merged_data = store[start_index]
   for i in range(1,size_indices):
     merged_data = np.append(merged_data, store[i], axis=1)
- 
   return merged_data

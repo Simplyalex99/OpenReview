@@ -1,16 +1,11 @@
 import pandas as pd 
 df_pearson_correlation = pd.read_csv('./api/machine_learning/data/yelp_business_categories_correlation.csv')
 df_popular_business = pd.read_csv('./api/machine_learning/data/business_recommendations.csv')
-"""
-@desc: predicts business success based on customer reviews and ratings.
-
-@args:
-    data (List[List[int]]): Counter vectozier data of customer reviews merged with the customers ratings
-    model (Object): Support Vector Machine classifier instance.
-
-@returns:
-    int: 1 for successful
-    if majority of the prediction is 1 else 0 for unsuccesful.
+"""Predicts the topics for each customer review.
+  @Args:
+    business_category (str): Recommendeds similar categories that go well with a given business category.
+  @Returns:
+    List[str]: A list of of categories that are type string.
 """
 def get_business_types_by_category(business_category):
   correlation_cut_off = 0.2
@@ -25,16 +20,11 @@ def get_business_types_by_category(business_category):
    
   business_competitor_categories = df_business_competitors.iloc[:,business_categories_column_index]
   return business_competitor_categories.tolist()
-"""
-@desc: predicts business success based on customer reviews and ratings.
-
-@args:
-    data (List[List[int]]): Counter vectozier data of customer reviews merged with the customers ratings
-    model (Object): Support Vector Machine classifier instance.
-
-@returns:
-    int: 1 for successful
-    if majority of the prediction is 1 else 0 for unsuccesful.
+"""Recommends popular business from the same category of the given input category.
+  @Args:
+    business_category (str): The given input businesss category.
+  @Returns:
+    List[Mapping[str:any]]: A list of dictionaries storing the popular businesses's information from the same category.
 """
 def get_popular_businesses_by_category(business_category):
   df_businesses_by_category =df_popular_business.loc[df_popular_business['category']==business_category]

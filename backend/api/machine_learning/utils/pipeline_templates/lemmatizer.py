@@ -24,7 +24,7 @@ class Lemmatizer(BaseEstimator):
       results = []
       for row in sentences:
         result = []
-        for sentence in row:    
+        for sentence in row:
           text = re.sub('[^a-zA-Z]',' ',sentence)
           text = text.lower()
           text= text.split()
