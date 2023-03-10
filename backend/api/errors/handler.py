@@ -30,11 +30,6 @@ def register_error_handlers(app):
         response = build_error_response(e)
         return response
 
-    @app.errorhandler(APIError)
-    def handle_exception(e):
-        response = build_error_response(e)
-        return response
-
     @app.errorhandler(Exception)
     def handle_exception(e):
         app.logger.error("Unhandled Exception: {}".format(str(e)))
