@@ -59,7 +59,6 @@ def getReviews(business_id):
 def getTopics():
     data=request.get_json()
     key_text = 'text'
-    key_rating = 'rating'
     key_reviews = 'reviews'
     if key_reviews not in data:
         raise InvalidInputError()
@@ -109,10 +108,8 @@ def getPredictions():
     try:
         texts = split_attribute_to_2d_array(reviews,key_text)
         ratings = split_attribute_to_2d_array(reviews,key_rating)
-
         data = [texts,ratings]
         data = preprocess_data(data)
-
         result = predict_business_success(data)
         response = {'successful':result,'status':200}
         return json.dumps(response)
