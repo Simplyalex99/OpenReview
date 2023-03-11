@@ -11,7 +11,7 @@ model = joblib.load('./api/machine_learning/assets/models/svm_model.sav')
 """
 def predict_business_success(data):
     num_features = 1145
-    if merged_data.shape[1] !=num_features:
+    if data.shape[1] !=num_features:
         raise InvalidInputError()
     results = model.predict(data)
     counter=Counter(results)
