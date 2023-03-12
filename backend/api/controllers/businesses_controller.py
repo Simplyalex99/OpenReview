@@ -42,11 +42,11 @@ def getBusinesses(query):
 
 # @route: /businesses/{id}/reviews
 
-def getReviews(business_id):
+def getReviews(id):
     keys = ("locale","offset","limit","sort_by")
     params = {key: request.args.get(key) for key in keys}
     query= queryBuilder(params)
-    url = BASE_URL + '{}/reviews{}'.format(business_id,query)
+    url = BASE_URL + '{}/reviews{}'.format(id,query)
     response = fetchData(url,HEADERS)
     if response== None:
         raise APIError()
@@ -56,7 +56,7 @@ def getReviews(business_id):
 
 # @route: /businesses/predictions/topics
 
-def getTopics():
+def getTopics(id):
     data=request.get_json()
     key_text = 'text'
     key_reviews = 'reviews'
@@ -97,7 +97,7 @@ def getRecommendationsByPopularity():
 
 # @route: /businesses/predictions/business-success
 
-def getPredictions():
+def getPredictions(id):
     data=request.get_json()
     key_text = 'text'
     key_rating = 'rating'
@@ -110,8 +110,8 @@ def getPredictions():
         ratings = split_attribute_to_2d_array(reviews,key_rating)
         data = [texts,ratings]
         data = preprocess_data(data)
-        result = predict_business_success(data)
-        response = {'successful':result,'status':200}
+        is_successful,total_positive_score,total_negative_score  = predict_business_success(data)
+        response = {'successful':is_successful,'positiveReviews':total_positive_score,'negativeReviews':total_negative_score,'status':200}
         return json.dumps(response)
     except:
         raise InvalidInputError()
