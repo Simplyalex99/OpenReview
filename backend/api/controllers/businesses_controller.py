@@ -42,11 +42,11 @@ def getBusinesses(query):
 
 # @route: /businesses/{id}/reviews
 
-def getReviews(business_id):
+def getReviews(id):
     keys = ("locale","offset","limit","sort_by")
     params = {key: request.args.get(key) for key in keys}
     query= queryBuilder(params)
-    url = BASE_URL + '{}/reviews{}'.format(business_id,query)
+    url = BASE_URL + '{}/reviews{}'.format(id,query)
     response = fetchData(url,HEADERS)
     if response== None:
         raise APIError()
@@ -56,7 +56,7 @@ def getReviews(business_id):
 
 # @route: /businesses/predictions/topics
 
-def getTopics():
+def getTopics(id):
     data=request.get_json()
     key_text = 'text'
     key_reviews = 'reviews'
@@ -97,7 +97,7 @@ def getRecommendationsByPopularity():
 
 # @route: /businesses/predictions/business-success
 
-def getPredictions():
+def getPredictions(id):
     data=request.get_json()
     key_text = 'text'
     key_rating = 'rating'
