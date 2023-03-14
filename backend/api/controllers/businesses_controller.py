@@ -16,6 +16,7 @@ from api.machine_learning.core.models.business_recommendations.prediction import
     get_business_types_by_category,
     get_popular_businesses_by_category,
 )
+from api import app
 from api.errors.templates.api_error import APIError
 from api.errors.templates.invalid_input_error import InvalidInputError
 from api.errors.templates.service_unavailable_error import ServiceUnavailableError
@@ -76,6 +77,7 @@ def getTopics(id):
 # @route: /businesses/recommendations/categories
 
 def getRecommendationsByCategories():
+    app.logger.info(f"Computing the square of ")
     category = request.args.get("category")
     if category == None:
         error_message = "mandatory 'category' query is missing from the URL"

@@ -6,8 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "cd ./frontend && npm run lint",
-    "dev": "cd ./frontend && npm run dev",
-    "dev:up":"docker compose -f docker-compose.yml -f docker-compose.dev.yml up"
+    "dev:frontend": "cd ./frontend && npm run dev",
+    "dev:backend": "cd ./backend && python3 app.py",
+    "dev:up": "docker compose -f docker-compose.yml -f docker-compose.dev.yml up"
   },
   "repository": {
     "type": "git",
