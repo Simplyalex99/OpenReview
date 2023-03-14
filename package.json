@@ -8,7 +8,12 @@
     "lint": "cd ./frontend && npm run lint",
     "dev:frontend": "cd ./frontend && npm run dev",
     "dev:backend": "cd ./backend && python3 app.py",
-    "dev:up": "docker compose -f docker-compose.yml -f docker-compose.dev.yml up"
+    "dev:up": "docker compose -f docker-compose.yml -f docker-compose.dev.yml up",
+    "dev:start": "docker-compose up",
+    "dev:build": "docker-compose build",
+    "dev:stop": "docker-compose down",
+    "dev:clean": "docker system prune -af",
+    "clean:volumes": "docker volume prune -f"
   },
   "repository": {
     "type": "git",
