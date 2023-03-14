@@ -1,13 +1,10 @@
-version: '3'
+version: "3"
 services:
   frontend:
     image: docker-nextjs-dev
     container_name: next-js-container
-    command: dev
-    volumes:
-      - ./frontend:/app
   backend:
     container_name: flask-container
     image: docker-flask-dev
     volumes:
-      - ./backend/:app  
+      - ./backend:/app

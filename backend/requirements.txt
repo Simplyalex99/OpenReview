@@ -1,10 +1,12 @@
 async-timeout==4.0.2
+cachelib==0.9.0
 certifi==2022.12.7
 charset-normalizer==2.1.1
 click==8.1.3
 distlib==0.3.6
 filelock==3.9.0
 Flask==2.2.2
+Flask-Caching==2.0.2
 fst-pso==1.8.1
 FuzzyTM==2.0.5
 gensim==4.3.0

@@ -7,4 +7,11 @@ services:
   backend:
     build: ./backend
     ports:
-      - '5000:5000' 
+      - '5000:5000'
+    depends_on:
+      - redis  
+  redis:
+    image: redis
+    container_name: redis-container
+    ports:
+      - "6379:6379"     
