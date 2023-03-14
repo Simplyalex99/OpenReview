@@ -77,7 +77,6 @@ def getTopics(id):
 # @route: /businesses/recommendations/categories
 
 def getRecommendationsByCategories():
-    app.logger.info(f"Computing the square of ")
     category = request.args.get("category")
     if category == None:
         error_message = "mandatory 'category' query is missing from the URL"
