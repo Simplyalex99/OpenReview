@@ -51,7 +51,7 @@
     font-weight: 500;
     font-size: 1.1rem;
     margin-left: 1em;
-
+    padding: 0;
     background: none;
     border: none;
     display: none;
@@ -115,6 +115,7 @@
         .nav-item {
           border: none;
           background: none;
+          font-size: 1.3rem;
         }
         .active-tab {
           font-weight: bold;
@@ -124,6 +125,15 @@
             text-decoration: underline;
             cursor: pointer;
           }
+        }
+      }
+    }
+  }
+  .nav-container {
+    .links-wrapper {
+      .toggle-container {
+        span {
+          font-size: 1.3rem;
         }
       }
     }
@@ -138,20 +148,6 @@
     .custom-link-wrapper {
       .custom-link {
         font-size: 1.1rem;
-      }
-    }
-    .nav-container {
-      .links-wrapper {
-        .toggle-container {
-          span {
-            font-size: 1rem;
-          }
-        }
-        .nav-item-wrapper {
-          .nav-item {
-            font-size: 1rem;
-          }
-        }
       }
     }
   }
@@ -198,7 +194,10 @@
           display: flex;
           justify-content: center;
           align-items: center;
-
+          padding-top: 5px;
+          button {
+            padding: 0;
+          }
           span {
             font-size: 0.8rem;
           }
@@ -208,7 +207,9 @@
           margin-bottom: 0;
           display: flex;
           justify-content: center;
-
+          button {
+            padding: 0;
+          }
           .nav-item {
             span {
               font-size: 0.8rem;

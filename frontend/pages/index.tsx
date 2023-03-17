@@ -7,6 +7,7 @@ import {
   EatingReviewSVG,
   ReportSVG,
   AccentSVG,
+  SquaresSVG,
   PrimaryLayout,
   NextPageWithLayout,
   NavItem,
@@ -48,8 +49,17 @@ const Home: NextPageWithLayout = () => {
   return (
     <>
       <div className={`${homeStyles['hero-img-wrapper']}`}>
+        <div
+          className={`${
+            darkMode
+              ? homeStyles['highlighter-dark-mode']
+              : homeStyles['highlighter-light-mode']
+          }`}
+        >
+          <SquaresSVG />
+        </div>
         <Image
-          src="/images/editorial.jpg"
+          src="/images/experience.jpg"
           alt="road"
           layout="fill"
           objectFit="cover"
@@ -60,29 +70,73 @@ const Home: NextPageWithLayout = () => {
       <div className={homeStyles.wrapper}>
         <section className={`  ${homeStyles.hero} `}>
           <div ref={ref} className={homeStyles.parallax}>
-            <p className={homeStyles['sub-heading']}>
+            <p
+              className={`${homeStyles['sub-heading']} ${
+                darkMode
+                  ? homeStyles['hero-content-dark-mode']
+                  : homeStyles['hero-content-light-mode']
+              }`}
+            >
               Connecting you with the best services
             </p>
-            <h1>Experience Satisfication</h1>
-            <span className={`  ${homeStyles['accet-svg']} `}>
-              <AccentSVG
-                className={`${homeStyles['accent-svg']}  `}
-                width="300"
-                height="30"
-              />
+            <h1
+              className={` ${
+                darkMode
+                  ? homeStyles['hero-content-dark-mode']
+                  : homeStyles['hero-content-light-mode']
+              } `}
+            >
+              {' '}
+              <span
+                className={`${
+                  darkMode
+                    ? homeStyles['heading-accent-dark-mode']
+                    : homeStyles['heading-accent-light-mode']
+                }`}
+              >
+                Experience
+              </span>{' '}
+              Satisfication
+            </h1>
+            <span
+              className={`${homeStyles['accent-svg']} ${
+                darkMode
+                  ? homeStyles['accent-svg-dark-mode']
+                  : homeStyles['accent-svg-light-mode']
+              }  `}
+            >
+              <AccentSVG width="300" height="30" />
             </span>
             <NavItem url="/404">
               <div className={`${homeStyles['action-btn-wrapper']}`}>
                 <button
                   type="button"
-                  className={` ${homeStyles['action-btn']}`}
+                  className={` ${homeStyles['action-btn']} ${
+                    darkMode
+                      ? homeStyles['action-btn-dark-mode']
+                      : homeStyles['action-btn-light-mode']
+                  }`}
                 >
                   Find Reviews
                 </button>
               </div>
             </NavItem>
-            <div className={` text-center ${homeStyles['scroll-wrapper']}`}>
-              <p className="">scroll</p>
+            <div
+              className={` text-center ${homeStyles['scroll-wrapper']} ${
+                darkMode
+                  ? homeStyles['scroll-dark-mode']
+                  : homeStyles['scroll-light-mode']
+              }`}
+            >
+              <p
+                className={`${
+                  darkMode
+                    ? homeStyles['hero-content-dark-mode']
+                    : homeStyles['hero-content-light-mode']
+                }`}
+              >
+                scroll
+              </p>
               <MouseSVG className={`  ${homeStyles.svg}`} />
             </div>
           </div>
