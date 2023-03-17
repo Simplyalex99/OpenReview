@@ -6,6 +6,7 @@ export { ReportSVG } from './svg/illustrations/Report';
 export { PageNotFoundSVG } from './svg/illustrations/PageNotFound';
 export { DownArrowSVG } from './svg/other/DownArrow';
 export { MouseSVG } from './svg/other/Mouse';
+export { SquaresSVG } from './svg/other/Squares';
 export { AccentSVG } from './svg/other/Accent';
 export { YoutubeSVG } from './svg/icons/Youtube';
 export { MediumSVG } from './svg/icons/Medium';

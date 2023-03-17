@@ -7,7 +7,7 @@ export const AccentSVG: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
         width="24"
         height="24"
         viewBox="0 0 490 42"
-        fill="none"
+        fill="white"
         xmlns="http://www.w3.org/2000/svg"
         {...props}
       >

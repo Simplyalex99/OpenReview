@@ -9,16 +9,46 @@
     align-content: center;
     justify-content: center;
     margin-bottom: 5em;
+    h1,
+    .scroll-wrapper,
+    .sub-heading,
+    .scroll-wrapper p,
+    .action-btn,
     .accent-svg {
-      display: absolute;
-      transform: translate(0%, -370%);
+      animation: fadeIn 5s;
+    }
+    .hero-content-light-mode,
+    .hero-content-dark-mode {
+      color: white;
+    }
+    .accent-svg {
+      position: absolute;
+      transform: translate(0%, -300%);
+    }
+    .accent-svg-dark-mode {
+      path {
+        fill: #00cc83 !important;
+      }
+    }
+    .accent-svg-light-mode {
+      path {
+        fill: #602bf8;
+      }
     }
     h1 {
       font-size: 3rem;
       line-height: 3.3rem;
       margin-top: 0;
       line-height: 1.2;
+
+      .heading-accent-dark-mode {
+        color: #00cc83;
+      }
+      .heading-accent-light-mode {
+        color: #602bf8;
+      }
     }
+
     .sub-heading {
       font-size: 1.3rem;
       margin-top: 2em;
@@ -29,6 +59,9 @@
       margin-top: 5em;
 
       text-align: left;
+    }
+    .scroll-dark-mode,
+    .scroll-light-mode {
       svg {
         path {
           fill: white;
@@ -37,20 +70,24 @@
     }
   }
   .action-btn-wrapper {
-    .action-btn {
+    .action-btn-dark-mode,
+    .action-btn-light-mode {
       color: rgba(0, 0, 0, 0.7);
       background-color: white;
-      border: none;
-      padding: 0.5em;
-      height: 36px;
-      width: 80%;
-      font-size: 1rem;
       &:hover {
         background: none;
         color: white;
         border: 1px solid white;
         transition: background-color 200ms ease-out;
       }
+    }
+
+    .action-btn {
+      border: none;
+      padding: 0.5em;
+      height: 36px;
+      width: 60%;
+      font-size: 1rem;
     }
   }
 
@@ -91,7 +128,7 @@
         .darkmode-btn {
           padding: 0.5em;
           height: 36px;
-          width: 80%;
+          width: 60%;
           font-size: 1rem;
 
           margin-bottom: 1.2em;
@@ -126,6 +163,10 @@
 .hero-img-wrapper {
   height: 100%;
   width: 100%;
+  .highlighter-light-mode,
+  .highlighter-dark-mode {
+    display: none;
+  }
 }
 .hero-img {
   height: 90vh !important;
@@ -153,6 +194,9 @@
     section.hero {
       text-align: center;
       margin-bottom: 10em;
+      .accent-svg {
+        transform: translate(-50%, -300%);
+      }
       .scroll-wrapper {
         text-align: center !important;
       }
@@ -175,25 +219,19 @@
   }
 }
 @media (min-width: 893px) {
-  .accent-svg {
-    transform: translate(-50%, -100%) !important;
-  }
-}
-@media (min-width: 940px) {
-  .accent-svg {
-    transform: translate(-50%, -120%) !important;
-  }
   .wrapper {
     section.hero {
-      text-align: center;
-      z-index: 100;
-      .scroll-wrapper {
-        text-align: center;
-      }
-      .sub-heading {
-        margin-top: 6em;
+      .accent-svg {
+        transform: translate(-100%, -100%);
       }
     }
+  }
+}
+// focus here alignments
+@media (min-width: 940px) {
+  .wrapper {
+    margin: 0em 1.5em 1em 1.5em;
+
     .more-info {
       .feature {
         display: grid;
@@ -201,27 +239,33 @@
         grid-template-areas: 'left right';
 
         margin-bottom: 10em;
+
         svg {
           width: 30em !important;
           justify-self: right;
         }
+
         .content {
           text-align: left;
           width: 25em;
           justify-self: left;
         }
       }
+
       .right {
         svg {
           text-align: left;
           justify-self: left;
         }
+
         .content {
           justify-self: right;
         }
       }
+
       .feature.left {
         grid-template-areas: 'left right';
+
         .content {
           grid-area: left;
           text-align: right;
@@ -230,6 +274,105 @@
         }
       }
     }
+
+    section.hero {
+      margin-top: 0em;
+
+      justify-content: unset;
+      align-items: unset;
+      width: 50%;
+      text-align: left;
+      .action-btn-wrapper {
+        .action-btn-dark-mode {
+          color: rgba(0, 0, 0, 0.7);
+          background-color: white;
+          &:hover {
+            background: none;
+            color: white;
+            border: 1px solid white;
+            transition: background-color 200ms ease-out;
+          }
+        }
+        .action-btn-light-mode {
+          color: white;
+          background-color: black;
+          &:hover {
+            background: none;
+            color: black;
+            border: 1px solid black;
+            transition: background-color 200ms ease-out;
+          }
+        }
+      }
+      .hero-content-light-mode {
+        color: black;
+      }
+      .hero-content-dark-mode {
+        color: white;
+      }
+      .accent-svg {
+        transform: translate(0%, -300%);
+      }
+      .heading-accent-dark-mode,
+      .heading-accent-light-mode {
+        display: block;
+      }
+      .sub-heading {
+        margin-top: 6em;
+      }
+      .scroll-wrapper {
+        text-align: left !important;
+      }
+      .scroll-light-mode {
+        svg {
+          path {
+            fill: black;
+          }
+        }
+      }
+    }
+  }
+
+  .hero-img-wrapper {
+    height: 42em;
+    width: 55%;
+    position: absolute;
+    left: unset;
+    right: 0;
+    .highlighter-light-mode,
+    .highlighter-dark-mode {
+      display: block;
+      position: absolute;
+      transform: translateY(5%);
+
+      z-index: 99;
+    }
+    .highlighter-light-mode {
+      svg {
+        rect {
+          fill: white;
+        }
+      }
+    }
+    .highlighter-dark-mode {
+      svg {
+        rect {
+          fill: #171821;
+        }
+      }
+    }
+  }
+
+  .hero-img {
+    z-index: 0;
+    max-width: none;
+    filter: brightness(60%) saturate(65%);
+
+    object-fit: cover;
+    background-size: cover;
+    animation: introLoad 2s forwards;
+    background-position-x: 20%;
+    background-position-y: 20%;
   }
 }
 @media (min-width: 1200px) {
@@ -250,5 +393,14 @@
   }
   to {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
