@@ -21,4 +21,4 @@ def predict_business_success(data):
     is_successful = False
     if total_positive_score > total_negative_score:
         is_successful=True
-    return is_successful,total_positive_score,total_negative_score 
+    return is_successful,total_positive_score,total_negative_score , results
