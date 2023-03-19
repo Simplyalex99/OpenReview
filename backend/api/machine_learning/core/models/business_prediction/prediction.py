@@ -7,7 +7,7 @@ model = joblib.load('./api/machine_learning/assets/models/svm_model.sav')
   @Args:
     data_ (list[list[Union[str,float]]]]): The counter vectozier data merged with customer ratings.
   @Returns:
-    Tuple[bool,int,int]: True if the majority of the predictions is classified as 1 representing successful else False, and the total
+    Tuple[bool,int,int,list[int]]: True if the majority of the predictions is classified as 1 representing successful else False, and the total
     amount of positive score and negative score.
 """
 def predict_business_success(data):
