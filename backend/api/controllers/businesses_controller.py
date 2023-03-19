@@ -111,8 +111,8 @@ def getPredictions(id):
         ratings = split_attribute_to_2d_array(reviews,key_rating)
         data = [texts,ratings]
         data = preprocess_data(data)
-        is_successful,total_positive_score,total_negative_score  = predict_business_success(data)
-        response = {'successful':is_successful,'positiveReviews':total_positive_score,'negativeReviews':total_negative_score,'status':200}
+        is_successful,total_positive_score,total_negative_score ,predictions  = predict_business_success(data)
+        response = {'successful':is_successful,'positiveReviews':total_positive_score,'negativeReviews':total_negative_score,prediction:predictions,'status':200}
         return json.dumps(response)
     except:
         raise InvalidInputError()
