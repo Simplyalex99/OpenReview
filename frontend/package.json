@@ -29,7 +29,8 @@
     "redux-thunk": "^2.4.1",
     "rellax": "^1.12.1",
     "sass": "^1.54.3",
-    "scroll-out": "^2.2.12"
+    "scroll-out": "^2.2.12",
+    "swr": "^2.1.0"
   },
   "devDependencies": {
     "@types/node": "18.6.3",

@@ -13,7 +13,8 @@
     "dev:build": "docker-compose build",
     "dev:stop": "docker-compose down",
     "dev:clean": "docker system prune -af",
-    "clean:volumes": "docker volume prune -f"
+    "clean:volumes": "docker volume prune -f",
+    "dev": "concurrently \"cd ./backend && python3 app.py\" \"cd ./frontend && npm run dev\""
   },
   "repository": {
     "type": "git",
@@ -25,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/Simplyalex99/OpenReview/issues"
   },
-  "homepage": "https://github.com/Simplyalex99/OpenReview#readme"
+  "homepage": "https://github.com/Simplyalex99/OpenReview#readme",
+  "dependencies": {
+    "concurrently": "^7.6.0"
+  }
 }
