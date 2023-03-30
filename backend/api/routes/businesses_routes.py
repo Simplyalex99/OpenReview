@@ -5,8 +5,14 @@ from api.controllers.businesses_controller import (
     getRecommendationsByCategories,
     getRecommendationsByPopularity,
     getPredictions,
+    getAutocomplete
 )
 from api import (app,cache)
+
+@app.route("/businesses/autocomplete",methods=["GET"])
+@cache.cached(timeout=30,query_string=True)
+def autocomplete_route():
+    return getAutocomplete()
 
 @app.route("/businesses/search", methods=["GET"])
 @cache.cached(timeout=30, query_string=True)
