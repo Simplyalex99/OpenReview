@@ -38,6 +38,10 @@ def getAutocomplete():
         "longitude"
     )
     params = {key: request.args.get(key) for key in keys}
+    if keys[0] not in params or keys[1] not in params or keys[2] not in params:
+        error_message = "mandatory 'latitude','longitude','text' query is missing from the URL"
+        raise InvalidInputError(description=error_message)
+
     query = queryBuilder(params)
     endpoint = 'autocomplete' + query
     url = BASE_URL + endpoint
