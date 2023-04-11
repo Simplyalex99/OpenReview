@@ -53,8 +53,22 @@ def getAutocomplete():
 
 # @route: /businesses/search
 
-def getBusinesses(query):
-
+def getBusinesses():
+    keys = (
+        "term",
+        "location",
+        "latitude",
+        "longitude",
+        "radius",
+        "limit",
+        "sort_by",
+        "open_at",
+    )
+    params = {key: request.args.get(key) for key in keys}
+    if keys[0] not in params or keys[2] not in params or keys[3] not in params:
+        error_message = "mandatory 'latitude','longitude','text' query is missing from the URL"
+        raise InvalidInputError(description=error_message)
+    query = queryBuilder(params)
     url = BASE_URL + 'businesses/search{}'.format(query)
     response = fetchData(url, HEADERS)
     if response== None:
