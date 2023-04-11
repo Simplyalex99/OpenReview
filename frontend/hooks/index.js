@@ -8,3 +8,5 @@ export { useScrollOut } from './effects/useScrollOut';
 
 export { useAutoComplete } from './utils/useAutoComplete';
 export { useFormInput } from './utils/useFormInput';
+export { usePosition } from './utils/usePosition';
+export { useFetchData } from './utils/useFetchData';

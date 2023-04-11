@@ -1,4 +1,4 @@
-import FooterStyles from '../../styles/Footer.module.scss';
+import FooterStyles from '../../styles/components/Footer.module.scss';
 import { useAppSelector } from '../../hooks/redux/useReduxHooks';
 import { YoutubeSVG } from '../svg/icons/Youtube';
 import { MediumSVG } from '../svg/icons/Medium';

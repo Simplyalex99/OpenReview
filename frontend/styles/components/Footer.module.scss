@@ -13,11 +13,10 @@
 }
 .footer {
   width: 100%;
-
   display: flex;
   .footer-wrapper {
-    margin: 2em;
-    text-align: left;
+    margin: 2em auto;
+    text-align: center;
     .footer-icons,
     .footer-links {
       display: grid;
@@ -29,6 +28,7 @@
     .footer-icons {
       margin-bottom: 2em;
       .footer-icon {
+        justify-self: center;
         &:hover {
           cursor: pointer;
         }
@@ -46,21 +46,6 @@
     .footer-copyright {
       font-size: 0.7rem;
       margin-bottom: 0;
-    }
-  }
-}
-
-@media (min-width: 600px) {
-  .footer {
-    .footer-wrapper {
-      margin: 2em auto;
-      text-align: center;
-
-      .footer-icons {
-        .footer-icon {
-          justify-self: center;
-        }
-      }
     }
   }
 }

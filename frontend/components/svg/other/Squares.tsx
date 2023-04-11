@@ -15,7 +15,6 @@ export const SquaresSVG: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
         <rect x="143" y="148" width="143" height="148" fill="white" />
         <rect y="296" width="143" height="148" fill="white" />
         <rect x="286" y="3" width="143" height="148" fill="white" />
-        <rect x="429" y="3" width="143" height="148" fill="white" />
       </svg>
     </>
   );

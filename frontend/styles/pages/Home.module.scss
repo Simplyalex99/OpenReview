@@ -163,8 +163,8 @@
 .hero-img-wrapper {
   height: 100%;
   width: 100%;
-  .highlighter-light-mode,
-  .highlighter-dark-mode {
+  .hero-img-accent-light-mode,
+  .hero-img-accent-dark-mode {
     display: none;
   }
 }
@@ -339,25 +339,25 @@
     position: absolute;
     left: unset;
     right: 0;
-    .highlighter-light-mode,
-    .highlighter-dark-mode {
+    .hero-img-accent-dark-mode,
+    .hero-img-accent-light-mode {
       display: block;
       position: absolute;
       transform: translateY(5%);
 
       z-index: 99;
     }
-    .highlighter-light-mode {
+    .hero-img-accent-light-mode {
       svg {
         rect {
           fill: white;
         }
       }
     }
-    .highlighter-dark-mode {
+    .hero-img-accent-dark-mode {
       svg {
         rect {
-          fill: #171821;
+          fill: black;
         }
       }
     }

@@ -1,0 +1,17 @@
+.suggestions-wrapper {
+  .suggestion {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border-bottom: 1px solid #bcbcbc;
+    border-left: 1px solid #bcbcbc;
+    border-right: 1px solid #bcbcbc;
+    border-top: none;
+    height: 100%;
+    margin: 0;
+    padding: 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+}

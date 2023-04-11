@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Switch from 'react-switch';
 import { HamburgerMenuSVG } from '../svg/common/HamburgerMenu';
 import { CloseSVG } from '../svg/common/Close';
-import navbarStyles from '../../styles/Navbar.module.scss';
+import navbarStyles from '../../styles/components/Navbar.module.scss';
 import {
   toggleDarkMode,
   toggleLightMode,
@@ -13,7 +13,7 @@ import {
   useAppSelector,
   useAppDispatch,
 } from '../../hooks/index';
-import homeStyles from '../../styles/Home.module.scss';
+import homeStyles from '../../styles/pages/Home.module.scss';
 
 export interface NavItemProps {
   url: string;
