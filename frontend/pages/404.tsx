@@ -1,4 +1,4 @@
-import pageNotFoundStyles from '../styles/404.module.scss';
+import pageNotFoundStyles from '../styles/pages/404.module.scss';
 import {
   NavItem,
   PageNotFoundSVG,

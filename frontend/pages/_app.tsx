@@ -17,12 +17,12 @@ const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
   useEffect(() => {
     document
       ?.querySelector('body')
-      ?.classList.add(darkMode ? 'dark-bg' : 'white-bg');
+      ?.classList.add(darkMode ? 'black-bg' : 'white-bg');
 
     return () => {
       document
         ?.querySelector('body')
-        ?.classList.remove(darkMode ? 'dark-bg' : 'white-bg');
+        ?.classList.remove(darkMode ? 'black-bg' : 'white-bg');
     };
   }, [darkMode]);
   return (

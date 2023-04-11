@@ -25,16 +25,51 @@ from flask import request
 import json
 import os
 
-BASE_URL = 'https://api.yelp.com/v3/businesses/'
+BASE_URL = 'https://api.yelp.com/v3/'
 API_KEY =os.getenv('YELP_API_KEY')
 HEADERS = {'Authorization': 'Bearer ' + API_KEY}
+
+# @route: /businesses/autocomplete
+
+def getAutocomplete():
+    keys = (
+        "text",
+        "latitude",
+        "longitude"
+    )
+    params = {key: request.args.get(key) for key in keys}
+    if keys[0] not in params or keys[1] not in params or keys[2] not in params:
+        error_message = "mandatory 'latitude','longitude','text' query is missing from the URL"
+        raise InvalidInputError(description=error_message)
+
+    query = queryBuilder(params)
+    endpoint = 'autocomplete' + query
+    url = BASE_URL + endpoint
+    response = fetchData(url,HEADERS)
+    if response== None:
+        raise APIError()
+    return response
 
 
 # @route: /businesses/search
 
-def getBusinesses(query):
-
-    url = BASE_URL + 'search{}'.format(query)
+def getBusinesses():
+    keys = (
+        "term",
+        "location",
+        "latitude",
+        "longitude",
+        "radius",
+        "limit",
+        "sort_by",
+        "open_at",
+    )
+    params = {key: request.args.get(key) for key in keys}
+    if keys[0] not in params or keys[2] not in params or keys[3] not in params:
+        error_message = "mandatory 'latitude','longitude','text' query is missing from the URL"
+        raise InvalidInputError(description=error_message)
+    query = queryBuilder(params)
+    url = BASE_URL + 'businesses/search{}'.format(query)
     response = fetchData(url, HEADERS)
     if response== None:
         raise APIError()
@@ -47,7 +82,7 @@ def getReviews(id):
     keys = ("locale","offset","limit","sort_by")
     params = {key: request.args.get(key) for key in keys}
     query= queryBuilder(params)
-    url = BASE_URL + '{}/reviews{}'.format(id,query)
+    url = BASE_URL + 'businesses/{}/reviews{}'.format(id,query)
     response = fetchData(url,HEADERS)
     if response== None:
         raise APIError()

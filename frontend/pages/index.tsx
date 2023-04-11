@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import Image from 'next/image';
-import homeStyles from '../styles/Home.module.scss';
+import homeStyles from '../styles/pages/Home.module.scss';
 import {
   MouseSVG,
   DarkModeSVG,
@@ -52,8 +52,8 @@ const Home: NextPageWithLayout = () => {
         <div
           className={`${
             darkMode
-              ? homeStyles['highlighter-dark-mode']
-              : homeStyles['highlighter-light-mode']
+              ? homeStyles['hero-img-accent-dark-mode']
+              : homeStyles['hero-img-accent-light-mode']
           }`}
         >
           <SquaresSVG />

@@ -1,0 +1,26 @@
+.search-box {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+.search-input {
+  width: 100%;
+  font-size: 0.9rem;
+  padding: 10px;
+  outline: none;
+
+  border: 1px solid #bcbcbc;
+}
+.search-button {
+  background-color: #602bf8;
+  border: 1px solid #602bf8;
+  text-align: center;
+  cursor: pointer;
+  padding: 13px;
+  font-size: 20px;
+  svg {
+    path {
+      fill: white;
+    }
+  }
+}

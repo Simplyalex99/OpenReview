@@ -5,25 +5,19 @@ from api.controllers.businesses_controller import (
     getRecommendationsByCategories,
     getRecommendationsByPopularity,
     getPredictions,
+    getAutocomplete
 )
 from api import (app,cache)
+
+@app.route("/businesses/autocomplete",methods=["GET"])
+@cache.cached(timeout=30,query_string=True)
+def autocomplete_route():
+    return getAutocomplete()
 
 @app.route("/businesses/search", methods=["GET"])
 @cache.cached(timeout=30, query_string=True)
 def index():
-    keys = (
-        "term",
-        "location",
-        "latitude",
-        "longitude",
-        "radius",
-        "limit",
-        "sort_by",
-        "open_at",
-    )
-    params = {key: request.args.get(key) for key in keys}
-    query = queryBuilder(params)
-    return getBusinesses(query)
+    return getBusinesses()
     
 @app.route("/businesses/<id>/reviews",methods=["GET"])
 @cache.cached(timeout=30, query_string=True)
