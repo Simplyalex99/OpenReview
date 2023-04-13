@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import stickyNavigationStyle from '../../styles/StickyNavigation.module.scss';
+import stickyNavigationStyle from '../../styles/hooks/StickyNavigation.module.scss';
 
 interface StickyNavigationProps {
   navbarId: string;

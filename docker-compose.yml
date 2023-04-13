@@ -1,9 +1,17 @@
 version: '3'
 services:
   frontend:
-    image: docker-nextjs-dev
     build: ./frontend
     ports:
       - 3000:3000
-    volumes:
-      - ./frontend:/app
+  backend:
+    build: ./backend
+    ports:
+      - '5000:5000'
+    depends_on:
+      - redis  
+  redis:
+    image: redis
+    container_name: redis-container
+    ports:
+      - "6379:6379"     

@@ -5,7 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "cd ./frontend && npm run lint"
+    "lint": "cd ./frontend && npm run lint",
+    "dev:frontend": "cd ./frontend && npm run dev",
+    "dev:backend": "cd ./backend && python3 app.py",
+    "dev:up": "docker compose -f docker-compose.yml -f docker-compose.dev.yml up",
+    "dev:start": "docker-compose up",
+    "dev:build": "docker-compose build",
+    "dev:stop": "docker-compose down",
+    "dev:clean": "docker system prune -af",
+    "clean:volumes": "docker volume prune -f",
+    "dev": "concurrently \"cd ./backend && python3 app.py\" \"cd ./frontend && npm run dev\""
   },
   "repository": {
     "type": "git",
@@ -17,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/Simplyalex99/OpenReview/issues"
   },
-  "homepage": "https://github.com/Simplyalex99/OpenReview#readme"
+  "homepage": "https://github.com/Simplyalex99/OpenReview#readme",
+  "dependencies": {
+    "concurrently": "^7.6.0"
+  }
 }
