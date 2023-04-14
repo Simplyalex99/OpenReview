@@ -10,7 +10,7 @@ model = joblib.load('./api/machine_learning/assets/models/svm_model.sav')
     int: True if prediction score is 1 else False.
 """
 def int_to_bool(score):
-  return True if score == 1 : False
+  return True if score == 1 else False
 
 """Predicts business success based on customer reviews and ratings.
   @Args:
