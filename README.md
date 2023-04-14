@@ -335,7 +335,8 @@ limit : number (optional),
 sort_by : string (optional; takes one of the following four: best_match, rating, review_count or distance. Default is best_match),
 ```
 
-_Data_ : ```javascript
+_Data_ : 
+```javascript
 {
    total: integer,
    reviews : [{
@@ -360,7 +361,8 @@ _Data_ : ```javascript
 
 _Path_ : `/predictions/topics`
 
-_Data_ : ```javascript
+_Data_ : 
+```javascript
 
 {
 
@@ -376,7 +378,8 @@ _Path_ : `/predictions/topics`
 
 _HTTP Method_ : POST
 
-_Body_ : ```
+_Body_ : 
+```
 {
     reviews: [
         {
@@ -386,7 +389,8 @@ _Body_ : ```
 }
 ```
 
-_Data_ : ```javascript
+_Data_ : 
+```javascript
 
 {
 
@@ -402,7 +406,8 @@ _Path_ : `/predictions/business-success`
 
 _HTTP Method_ : POST
 
-_Body_ : ```
+_Body_ : 
+```
 
 {
     reviews: [
@@ -417,7 +422,8 @@ _Body_ : ```
 
 }
 ```
-_Data_ : ```javascript
+_Data_ : 
+```javascript
 
 {
 
@@ -438,7 +444,8 @@ _Query Params_:
 category : string (required),
 ```
 
-_Data_ : ```javascript
+_Data_ : 
+```javascript
 {
 businesses: [
 
@@ -464,7 +471,8 @@ _Query Params_:
 category : string (required),
 ```
 
-_Data_ : ```javascript
+_Data_ : 
+```javascript
 
 {
     categories: Array<string>,
