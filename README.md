@@ -220,8 +220,11 @@ The `description` attribute contains the message to indicate what the specific e
 If the _request is valid_ , OpenReview API returns a JSON in the following format for each endpoint:
 
 _Path_ : `/autocomplete`
+
 _HTTP Method_ : GET
+
 _Reference_ : `https://docs.developer.yelp.com/reference/v3_autocomplete`
+
 _Query Params_ : ```
 
 text : string (required),
@@ -250,8 +253,11 @@ _Data_ :
 ```
 
 _Path_ : `/search`
+
 _HTTP Method_ : GET
+
 _Reference_ : `https://docs.developer.yelp.com/reference/v3_business_search`
+
 _Query Params_: ```
 
 text : string (required),
@@ -318,13 +324,17 @@ _Data_ :
 ```
 
 _Path_ : `/<id>/reviews`
+
 _HTTP Method_ : GET
+
 _Reference_ : `https://docs.developer.yelp.com/reference/v3_business_reviews`
+
 _Query Params_: ```
 
 limit : number (optional),
 sort_by : string (optional; takes one of the following four: best_match, rating, review_count or distance. Default is best_match),
 ```
+
 _Data_ : ```javascript
 {
    total: integer,
@@ -349,6 +359,7 @@ _Data_ : ```javascript
 ```
 
 _Path_ : `/predictions/topics`
+
 _Data_ : ```javascript
 
 {
@@ -362,7 +373,9 @@ _Data_ : ```javascript
 ```
 
 _Path_ : `/predictions/topics`
+
 _HTTP Method_ : POST
+
 _Body_ : ```
 {
     reviews: [
@@ -386,7 +399,9 @@ _Data_ : ```javascript
 ```
 
 _Path_ : `/predictions/business-success`
+
 _HTTP Method_ : POST
+
 _Body_ : ```
 
 {
@@ -415,7 +430,9 @@ _Data_ : ```javascript
 ```
 
 _Path_ : `/recommendations/popular`
+
 _HTTP Method_ : GET
+
 _Query Params_: ```
 
 category : string (required),
@@ -439,7 +456,9 @@ status: integer
 ```
 
 _Path_ : `/recommendations/categories`
+
 _HTTP Method_ : GET
+
 _Query Params_: ```
 
 category : string (required),
