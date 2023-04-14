@@ -31,6 +31,7 @@ export const BusinessProfileCard = ({
 }: BusinessProfileCardProps) => {
   const maxTags = Math.max(2, categoryTags.length) as number;
   const categories = categoryTags.slice(0, maxTags);
+  const sampleCategory = categories.length > 0 ? categories[0] : '';
   const stateTheme = useAppSelector((state) => state.themeReducer);
   const { darkMode } = stateTheme;
   const color = darkMode ? '#6C63FF' : '#602BF8';
@@ -103,7 +104,7 @@ export const BusinessProfileCard = ({
             {address}, {city}
           </p>
           <div className={businessProfileCardStyles['links-container']}>
-            <Link href={dashboardUrl}>
+            <Link href={{ pathname: dashboardUrl, query: sampleCategory }}>
               <p className={businessProfileCardStyles['action-btn']}>
                 Select Option
               </p>
