@@ -258,8 +258,8 @@ _HTTP Method_ : GET
 
 _Reference_ : `https://docs.developer.yelp.com/reference/v3_business_search`
 
-_Query Params_: ```
-
+_Query Params_: 
+```
 text : string (required),
 latitude : number (required),
 longitude : number (required),
@@ -329,8 +329,8 @@ _HTTP Method_ : GET
 
 _Reference_ : `https://docs.developer.yelp.com/reference/v3_business_reviews`
 
-_Query Params_: ```
-
+_Query Params_: 
+```
 limit : number (optional),
 sort_by : string (optional; takes one of the following four: best_match, rating, review_count or distance. Default is best_match),
 ```
@@ -433,8 +433,8 @@ _Path_ : `/recommendations/popular`
 
 _HTTP Method_ : GET
 
-_Query Params_: ```
-
+_Query Params_: 
+```
 category : string (required),
 ```
 
@@ -459,8 +459,8 @@ _Path_ : `/recommendations/categories`
 
 _HTTP Method_ : GET
 
-_Query Params_: ```
-
+_Query Params_: 
+```
 category : string (required),
 ```
 
