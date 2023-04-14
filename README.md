@@ -223,6 +223,7 @@ _Path_ : `/autocomplete`
 _HTTP Method_ : GET
 _Reference_ : `https://docs.developer.yelp.com/reference/v3_autocomplete`
 _Query Params_: ```
+
 text : string (required),
 latitude : number (required),
 longitude : number (required)
@@ -252,6 +253,7 @@ _Path_ : `/search`
 _HTTP Method_ : GET
 _Reference_ : `https://docs.developer.yelp.com/reference/v3_business_search`
 _Query Params_: ```
+
 text : string (required),
 latitude : number (required),
 longitude : number (required),
@@ -319,6 +321,7 @@ _Path_ : `/<id>/reviews`
 _HTTP Method_ : GET
 _Reference_ : `https://docs.developer.yelp.com/reference/v3_business_reviews`
 _Query Params_: ```
+
 limit : number (optional),
 sort_by : string (optional; takes one of the following four: best_match, rating, review_count or distance. Default is best_match),
 
@@ -349,6 +352,7 @@ _Data_ : ```javascript
 
 _Path_ : `/predictions/topics`
 _Data_ : ```javascript
+
 {
 
     reviews:[
@@ -372,6 +376,7 @@ _Body_ : ```
 }
 ```
 _Data_ : ```javascript
+
 {
 
     reviews:[
@@ -386,6 +391,7 @@ _Data_ : ```javascript
 _Path_ : `/predictions/business-success`
 _HTTP Method_ : POST
 _Body_ : ```
+
 {
     reviews: [
 
@@ -401,6 +407,7 @@ _Body_ : ```
 
 ```
 _Data_ : ```javascript
+
 {
 
     successful:bool,
@@ -445,6 +452,7 @@ category : string (required),
 ```
 
 _Data_ : ```javascript
+
 {
     categories: Array<string>,
     status: integer
