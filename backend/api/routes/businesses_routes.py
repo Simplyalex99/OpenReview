@@ -26,10 +26,10 @@ def reviews_route(id):
 
 
 
-@app.route("/businesses/<id>/topics", methods=["POST"])
+@app.route("/businesses/predictions/topics", methods=["POST"])
 @cache.cached(timeout=30)
-def topics_route(id):
-    return getTopics(id)
+def topics_route():
+    return getTopics()
 
  
 @app.route("/businesses/recommendations/popular", methods=["GET"])
@@ -44,7 +44,7 @@ def recommendations_categories_route():
     return getRecommendationsByCategories()
 
 
-@app.route("/businesses/<id>/business-success", methods=["POST"])
+@app.route("/businesses/predictions/business-success", methods=["POST"])
 @cache.cached(timeout=30)
-def predictions_route(id):
-    return getPredictions(id)
+def predictions_route():
+    return getPredictions()
