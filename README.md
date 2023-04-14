@@ -221,7 +221,7 @@ If the _request is valid_ , OpenReview API returns a JSON in the following forma
 
 _Path_ : `/autocomplete`
 
-_HTTP Method_ : GET
+_HTTP Method_ : `GET`
 
 _Reference_ : `https://docs.developer.yelp.com/reference/v3_autocomplete`
 
@@ -254,7 +254,7 @@ _Data_ :
 
 _Path_ : `/search`
 
-_HTTP Method_ : GET
+_HTTP Method_ : `GET`
 
 _Reference_ : `https://docs.developer.yelp.com/reference/v3_business_search`
 
@@ -325,7 +325,7 @@ _Data_ :
 
 _Path_ : `/<id>/reviews`
 
-_HTTP Method_ : GET
+_HTTP Method_ : `GET`
 
 _Reference_ : `https://docs.developer.yelp.com/reference/v3_business_reviews`
 
@@ -376,7 +376,7 @@ _Data_ :
 
 _Path_ : `/predictions/topics`
 
-_HTTP Method_ : POST
+_HTTP Method_ : `POST`
 
 _Body_ : 
 ```
@@ -437,7 +437,7 @@ _Data_ :
 
 _Path_ : `/recommendations/popular`
 
-_HTTP Method_ : GET
+_HTTP Method_ : `GET`
 
 _Query Params_: 
 ```
@@ -464,7 +464,7 @@ status: integer
 
 _Path_ : `/recommendations/categories`
 
-_HTTP Method_ : GET
+_HTTP Method_ : `GET`
 
 _Query Params_: 
 ```
