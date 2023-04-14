@@ -227,8 +227,8 @@ _Query Params_: ```
 text : string (required),
 latitude : number (required),
 longitude : number (required)
-
 ```
+
 _Data_ :
 
 ```javascript
@@ -260,8 +260,8 @@ longitude : number (required),
 radius: number (optional),
 limit: number (optional),
 sort_by: string (optional; takes one of the following four: best_match, rating, review_count or distance. Default is best_match),
-
 ```
+
 _Data_ :
 
 ```javascript
@@ -324,7 +324,6 @@ _Query Params_: ```
 
 limit : number (optional),
 sort_by : string (optional; takes one of the following four: best_match, rating, review_count or distance. Default is best_match),
-
 ```
 _Data_ : ```javascript
 {
@@ -347,7 +346,6 @@ _Data_ : ```javascript
    }],
    possible_languages: Array<string>
 }
-
 ```
 
 _Path_ : `/predictions/topics`
@@ -361,7 +359,6 @@ _Data_ : ```javascript
     ],
     status: integer
 }
-
 ```
 
 _Path_ : `/predictions/topics`
@@ -375,6 +372,7 @@ _Body_ : ```
     ]
 }
 ```
+
 _Data_ : ```javascript
 
 {
@@ -385,7 +383,6 @@ _Data_ : ```javascript
     ],
     status: integer
 }
-
 ```
 
 _Path_ : `/predictions/business-success`
@@ -404,7 +401,6 @@ _Body_ : ```
     ]
 
 }
-
 ```
 _Data_ : ```javascript
 
@@ -416,7 +412,6 @@ _Data_ : ```javascript
     predictions: Array<bool>,
     status: integer
 }
-
 ```
 
 _Path_ : `/recommendations/popular`
@@ -424,8 +419,8 @@ _HTTP Method_ : GET
 _Query Params_: ```
 
 category : string (required),
-
 ```
+
 _Data_ : ```javascript
 {
 businesses: [
@@ -448,7 +443,6 @@ _HTTP Method_ : GET
 _Query Params_: ```
 
 category : string (required),
-
 ```
 
 _Data_ : ```javascript
