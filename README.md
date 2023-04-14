@@ -246,7 +246,7 @@ _Data_ :
           name: string
   }
   terms: {
-      text: string
+      text: Array<string>
   }
 
 }
