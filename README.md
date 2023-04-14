@@ -252,6 +252,8 @@ _Data_ :
 }
 ```
 
+-----
+
 _Path_ : `/search`
 
 _HTTP Method_ : `GET`
@@ -323,6 +325,8 @@ _Data_ :
 
 ```
 
+-----
+
 _Path_ : `/<id>/reviews`
 
 _HTTP Method_ : `GET`
@@ -359,20 +363,7 @@ _Data_ :
 }
 ```
 
-_Path_ : `/predictions/topics`
-
-_Data_ : 
-```javascript
-
-{
-
-    reviews:[
-        text: string,
-        categories: Array<string>
-    ],
-    status: integer
-}
-```
+-----
 
 _Path_ : `/predictions/topics`
 
@@ -401,6 +392,8 @@ _Data_ :
     status: integer
 }
 ```
+
+-----
 
 _Path_ : `/predictions/business-success`
 
@@ -435,6 +428,8 @@ _Data_ :
 }
 ```
 
+-----
+
 _Path_ : `/recommendations/popular`
 
 _HTTP Method_ : `GET`
@@ -461,6 +456,8 @@ businesses: [
 status: integer
 }
 ```
+
+-----
 
 _Path_ : `/recommendations/categories`
 
