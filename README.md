@@ -222,7 +222,7 @@ If the _request is valid_ , OpenReview API returns a JSON in the following forma
 _Path_ : `/autocomplete`
 _HTTP Method_ : GET
 _Reference_ : `https://docs.developer.yelp.com/reference/v3_autocomplete`
-_Query Params_: ```
+_Query Params_ : ```
 
 text : string (required),
 latitude : number (required),
