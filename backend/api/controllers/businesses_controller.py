@@ -56,13 +56,11 @@ def getAutocomplete():
 def getBusinesses():
     keys = (
         "term",
-        "location",
         "latitude",
         "longitude",
         "radius",
         "limit",
         "sort_by",
-        "open_at",
     )
     params = {key: request.args.get(key) for key in keys}
     if keys[0] not in params or keys[2] not in params or keys[3] not in params:
@@ -79,7 +77,7 @@ def getBusinesses():
 # @route: /businesses/{id}/reviews
 
 def getReviews(id):
-    keys = ("locale","offset","limit","sort_by")
+    keys = ("limit","sort_by")
     params = {key: request.args.get(key) for key in keys}
     query= queryBuilder(params)
     url = BASE_URL + 'businesses/{}/reviews{}'.format(id,query)
@@ -92,7 +90,7 @@ def getReviews(id):
 
 # @route: /businesses/predictions/topics
 
-def getTopics(id):
+def getTopics():
     data=request.get_json()
     key_text = 'text'
     key_reviews = 'reviews'
@@ -133,7 +131,7 @@ def getRecommendationsByPopularity():
 
 # @route: /businesses/predictions/business-success
 
-def getPredictions(id):
+def getPredictions():
     data=request.get_json()
     key_text = 'text'
     key_rating = 'rating'
@@ -147,7 +145,7 @@ def getPredictions(id):
         data = [texts,ratings]
         data = preprocess_data(data)
         is_successful,total_positive_score,total_negative_score ,predictions  = predict_business_success(data)
-        response = {'successful':is_successful,'positiveReviews':total_positive_score,'negativeReviews':total_negative_score,prediction:predictions,'status':200}
+        response = {'successful':is_successful,'positive_reviews':total_positive_score,'negative_reviews':total_negative_score,prediction:predictions,'status':200}
         return json.dumps(response)
     except:
         raise InvalidInputError()
