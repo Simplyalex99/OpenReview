@@ -97,14 +97,19 @@ def getTopics():
     if key_reviews not in data:
         raise InvalidInputError()
     reviews = data['reviews']
+    reviews_2d = [[]]
     try:
-        reviews = split_attribute_to_2d_array(reviews,key_text)
-        data = preprocess_topics(reviews)
-        results = classify_data_top2_category(data,reviews)
-        response = {'reviews':results,'status':200}
-        return json.dumps(response)
+        reviews_2d = split_attribute_to_2d_array(reviews,key_text)
     except:
         raise InvalidInputError()
+    try:        
+        data = preprocess_topics(reviews_2d)
+        results = classify_data_top2_category(data,reviews_2d)
+        response = {'reviews':results,'status':200}
+        return json.dumps(response)
+    except Exception as e:
+        print(e)
+        raise Exception()
 
 
 # @route: /businesses/recommendations/categories
@@ -139,14 +144,20 @@ def getPredictions():
     if key_reviews not in data:
         raise InvalidInputError()
     reviews = data['reviews']
+    texts= [[]]
+    ratings = [[]]
     try:
         texts = split_attribute_to_2d_array(reviews,key_text)
         ratings = split_attribute_to_2d_array(reviews,key_rating)
+    except:
+        raise InvalidInputError()
+    try:        
         data = [texts,ratings]
         data = preprocess_data(data)
         is_successful,total_positive_score,total_negative_score ,predictions  = predict_business_success(data)
-        response = {'successful':is_successful,'positive_reviews':total_positive_score,'negative_reviews':total_negative_score,prediction:predictions,'status':200}
+        response = {'successful':is_successful,'positive_reviews':total_positive_score,'negative_reviews':total_negative_score,'predictions':predictions,'status':200}
         return json.dumps(response)
-    except:
-        raise InvalidInputError()
+    except Exception as e:
+        print(e)
+        raise Exception()
 

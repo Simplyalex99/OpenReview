@@ -23,12 +23,12 @@ def int_to_bool(score):
 def predict_business_success(data):
     num_features = 1145
     if data.shape[1] !=num_features:
-        raise InvalidInputError()
+        raise InvalidInputError()  
     results = model.predict(data)
     counter=Counter(results)
     total_negative_score = counter[0]
     total_positive_score = counter[1]
-    predictions = map(int_to_bool,results)
+    predictions = list(map(int_to_bool,results))
     is_successful = False
     if total_positive_score > total_negative_score:
         is_successful=True
