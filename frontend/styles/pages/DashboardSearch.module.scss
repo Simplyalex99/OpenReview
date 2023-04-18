@@ -27,55 +27,6 @@
     width: 90%;
     margin: auto;
     margin-bottom: 4em;
-    .searchbar-flex-container {
-      display: flex;
-      justify-content: center;
-    }
-
-    .search-input-light,
-    .search-input-dark {
-      width: 100%;
-      font-size: 0.9rem;
-      padding: 10px;
-      outline: none;
-
-      border: 1px solid #bcbcbc;
-    }
-    .search-input-light {
-      background: none;
-    }
-    .search-button-dark {
-      background: white;
-    }
-    .search-button-dark,
-    .search-button-light {
-      text-align: center;
-      cursor: pointer;
-      padding: 13px;
-      font-size: 20px;
-      svg {
-        path {
-          fill: white;
-        }
-      }
-    }
-
-    .search-button-light {
-      background-color: #602bf8;
-      border: 1px solid #602bf8;
-    }
-    .search-button-dark {
-      background-color: #6c63ff;
-      border: 1px solid #6c63ff;
-    }
-
-    .suggestions-dark,
-    .suggestions-light {
-      background: white;
-      &:hover {
-        background: #f8f8f8;
-      }
-    }
   }
 }
 
