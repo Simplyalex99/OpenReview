@@ -25,3 +25,5 @@ export { BusinessProfileCard } from './cards/BusinessProfileCard';
 export { Footer } from './common/Footer';
 export { PrimaryLayout } from './layouts/PrimaryLayout';
 export { NextPageWithLayout } from './layouts/PageLayout';
+export { SearchSection } from './sections/dashboard/SearchSection';
+export { SEO } from './common/SEO';
