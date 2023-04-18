@@ -11,6 +11,7 @@ import {
   PrimaryLayout,
   NextPageWithLayout,
   NavItem,
+  SEO,
 } from '../components/index';
 import {
   toggleDarkMode,
@@ -48,6 +49,10 @@ const Home: NextPageWithLayout = () => {
   };
   return (
     <>
+      <SEO
+        title="Home"
+        description="Beautiful webdesign with rich business insight and dark mode"
+      />
       <div className={`${homeStyles['hero-img-wrapper']}`}>
         <div
           className={`${
