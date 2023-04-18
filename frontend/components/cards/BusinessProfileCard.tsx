@@ -104,7 +104,12 @@ export const BusinessProfileCard = ({
             {address}, {city}
           </p>
           <div className={businessProfileCardStyles['links-container']}>
-            <Link href={{ pathname: dashboardUrl, query: sampleCategory }}>
+            <Link
+              href={{
+                pathname: dashboardUrl,
+                query: { category: sampleCategory },
+              }}
+            >
               <p className={businessProfileCardStyles['action-btn']}>
                 Select Option
               </p>
