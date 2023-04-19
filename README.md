@@ -17,7 +17,7 @@
 
 ## Description
 
-OpenReview is a machine learning app that uses natural language processing to provide users with categorized customer reviews on different local businesses and services, along with business competitors and prediction of the business's success based on customer reviews and ratings.
+OpenReview is a machine learning app that uses natural language processing to save businesses time and money by providing categorized customer reviews on different local businesses and services, along with business competitors and category product recommendations and prediction of the business's success based on customer reviews and ratings.
 
 ## Set-Up
 
@@ -179,9 +179,14 @@ The rbf kernel comes into play by transforming the data into higher dimensions t
    Lastly, people who enjoy coffee and tea also enjoy breakfast and brunch, donuts, coffee roasteries, and kombucha.
    For new businesses, this can help give an idea of what makes some business good and related products.
 
-## Tech-Stack
+## Tech-Stack/Languages
 
-For this project I used Google Cloud Kubernetes, MongoDB, Docker, Flask, Next.js , Redis, Typescript and Sass.
+For this project I used the following:
+_Frontend_ : Next.js, Typescript, Sass.
+
+_Backend_ : Flask, Redis.
+
+_Deployment_ : Docker, Google Cloud Kubernetes.
 
 ## Motivation
 
@@ -225,7 +230,8 @@ _HTTP Method_ : `GET`
 
 _Reference_ : `https://docs.developer.yelp.com/reference/v3_autocomplete`
 
-_Query Params_ : 
+_Query Params_ :
+
 ```
 text : string (required),
 latitude : number (required),
@@ -252,7 +258,7 @@ _Data_ :
 }
 ```
 
------
+---
 
 _Path_ : `/search`
 
@@ -260,7 +266,8 @@ _HTTP Method_ : `GET`
 
 _Reference_ : `https://docs.developer.yelp.com/reference/v3_business_search`
 
-_Query Params_: 
+_Query Params_:
+
 ```
 text : string (required),
 latitude : number (required),
@@ -325,7 +332,7 @@ _Data_ :
 
 ```
 
------
+---
 
 _Path_ : `/<id>/reviews`
 
@@ -333,13 +340,15 @@ _HTTP Method_ : `GET`
 
 _Reference_ : `https://docs.developer.yelp.com/reference/v3_business_reviews`
 
-_Query Params_: 
+_Query Params_:
+
 ```
 limit : number (optional),
 sort_by : string (optional; takes one of the following four: best_match, rating, review_count or distance. Default is best_match),
 ```
 
-_Data_ : 
+_Data_ :
+
 ```javascript
 {
    total: integer,
@@ -363,13 +372,14 @@ _Data_ :
 }
 ```
 
------
+---
 
 _Path_ : `/predictions/topics`
 
 _HTTP Method_ : `POST`
 
-_Body_ : 
+_Body_ :
+
 ```
 {
     reviews: [
@@ -380,7 +390,8 @@ _Body_ :
 }
 ```
 
-_Data_ : 
+_Data_ :
+
 ```javascript
 
 {
@@ -393,13 +404,14 @@ _Data_ :
 }
 ```
 
------
+---
 
 _Path_ : `/predictions/business-success`
 
 _HTTP Method_ : POST
 
-_Body_ : 
+_Body_ :
+
 ```
 
 {
@@ -415,7 +427,9 @@ _Body_ :
 
 }
 ```
-_Data_ : 
+
+_Data_ :
+
 ```javascript
 
 {
@@ -428,47 +442,48 @@ _Data_ :
 }
 ```
 
------
+---
 
 _Path_ : `/recommendations/popular`
 
 _HTTP Method_ : `GET`
 
-_Query Params_: 
+_Query Params_:
+
 ```
 category : string (required),
 ```
 
-_Data_ : 
+_Data_ :
+
 ```javascript
 {
-businesses: [
+	businesses: [
+		{
+			business_id: string,
+			business_name: string,
+			business_rating: number,
+		},
+	];
 
-    {
-        business_id: string,
-        business_name: string,
-        business_rating: number
-
-    }   
-
-]
-
-status: integer
+	status: integer;
 }
 ```
 
------
+---
 
 _Path_ : `/recommendations/categories`
 
 _HTTP Method_ : `GET`
 
-_Query Params_: 
+_Query Params_:
+
 ```
 category : string (required),
 ```
 
-_Data_ : 
+_Data_ :
+
 ```javascript
 
 {
@@ -477,7 +492,6 @@ _Data_ :
 
 }
 ```
-
 
 ### Status Codes
 
@@ -489,4 +503,7 @@ OpenReview's API returns the following status codes in its API:
 | 400         | `BAD REQUEST`           |
 | 404         | `NOT FOUND`             |
 | 500         | `INTERNAL SERVER ERROR` |
-````
+
+```
+
+```
