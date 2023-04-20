@@ -107,7 +107,7 @@ export const BusinessProfileCard = ({
             <Link
               href={{
                 pathname: dashboardUrl,
-                query: { category: sampleCategory },
+                query: { category: sampleCategory, name: title, address },
               }}
             >
               <p className={businessProfileCardStyles['action-btn']}>
