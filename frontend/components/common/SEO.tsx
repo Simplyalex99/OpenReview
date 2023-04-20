@@ -15,7 +15,7 @@ export const SEO: React.FC<SEOProps> = ({ title, description }) => {
         content="width=device-width, initial-scale=1, user-scalable=no, user-scalable=0"
       />
       <meta name="description" content={description} />
-      <link rel="icon" href="/images/openreview_logo.jpg" />
+      <link rel="icon" href="/images/logo.jpg" />
     </Head>
   );
 };
