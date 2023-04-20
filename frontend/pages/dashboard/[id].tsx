@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { GetServerSideProps } from 'next';
+import dashboardStyles from '../../styles/pages/Dashboard.module.scss';
 import {
   PrimaryLayout,
   NextPageWithLayout,
   SearchSection,
+  HeadingSection,
+  StatsSection,
+  NullComponent,
 } from '../../components';
 import {
   useAppSelector,
@@ -17,6 +21,8 @@ import URLTypesEnum, { BASE_URL } from '../../enums/types';
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const businessID = context.params?.id ?? '';
   const category = context.query?.category ?? '';
+  const businessName = context.query?.name ?? '';
+  const businessAddress = context.query?.address ?? '';
   const {
     REVIEW_TOPICS_URL,
     CATEGORIES_RECOMMENDATION_URL,
@@ -50,6 +56,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       popularBusinesses: popularBusinessesData,
       businessCategories: businessCategoriesData,
       businessPrediction: businessPredictionData,
+      businessName,
+      businessAddress,
     },
   };
 };
@@ -97,18 +105,46 @@ interface BusinessProps {
   popularBusinesses?: PopularBusinessProps;
   businessCategories?: BusinessCategoriesProps;
   businessPrediction?: BusinessPredictionProps;
+  businessName?: string;
+  businessAddress?: string;
 }
 
 interface AutoCompleteJSON {
   terms?: object[];
 }
+
+const buildSectionComponents = ({
+  businessPrediction,
+  businessName,
+  businessAddress,
+}: BusinessProps) => {
+  let HeadingComponent;
+  if (businessName && businessAddress) {
+    HeadingComponent = (
+      <HeadingSection
+        businessName={businessName}
+        businessAddress={businessAddress}
+      />
+    );
+  } else {
+    HeadingComponent = <NullComponent />;
+  }
+  let StatsComponent;
+  if (businessPrediction) {
+    StatsComponent = (
+      <StatsSection
+        positiveReviews={businessPrediction.positive_reviews}
+        negativeReviews={businessPrediction.negative_reviews}
+      />
+    );
+  } else {
+    StatsComponent = <NullComponent />;
+  }
+
+  return [HeadingComponent, StatsComponent];
+};
+
 const Dashboard: NextPageWithLayout = (props) => {
-  const {
-    customerReviews,
-    popularBusinesses,
-    businessCategories,
-    businessPrediction,
-  }: BusinessProps = props;
   const stateTheme = useAppSelector((state) => state.themeReducer);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
   const { darkMode } = stateTheme;
@@ -136,22 +172,26 @@ const Dashboard: NextPageWithLayout = (props) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
     const query = `?term=${formInput}&latitude=${latitude}&longitude=${longitude}&limit=${searchResultsLimit}`;
   };
-  console.log(customerReviews);
-  console.log(popularBusinesses);
-  console.log(businessCategories);
-  console.log(businessPrediction);
-
+  // check if object is null and if use let SectionX = Null if is undfined else = Section. Do this for each.
+  const [HeadingComponent, StatsComponent] = buildSectionComponents(props);
   return (
-    <>
-      <p>hi</p>
-      <SearchSection
-        formInput={formInput}
-        searchHandler={searchHandler}
-        suggestions={suggestions}
-        suggestionsHandler={suggestionsHandler}
-        inputHandler={inputHandler}
-      />
-    </>
+    <div className={dashboardStyles.wrapper}>
+      <section className={dashboardStyles['search-wrapper']}>
+        <SearchSection
+          formInput={formInput}
+          searchHandler={searchHandler}
+          suggestions={suggestions}
+          suggestionsHandler={suggestionsHandler}
+          inputHandler={inputHandler}
+        />
+      </section>
+      <section
+        className={`${dashboardStyles.heading} ${darkMode ? 'white' : 'black'}`}
+      >
+        {HeadingComponent}
+      </section>
+      <section>{StatsComponent}</section>
+    </div>
   );
 };
 export default Dashboard;
