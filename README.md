@@ -9,7 +9,7 @@
 5. [Algorithms](https://github.com/Simplyalex99/OpenReview/tree/feat#algorithms)
 6. [Project Anaylsis](https://github.com/Simplyalex99/OpenReview/tree/feat#project-anaylsis)
 7. [Final Results](https://github.com/Simplyalex99/OpenReview/tree/feat#final-results)
-8. [Tech-Stack & Languages](https://github.com/Simplyalex99/OpenReview/tree/feat#tech-stack-&-languages)
+8. [Tech-Stack](https://github.com/Simplyalex99/OpenReview/tree/feat#tech-stack)
 9. [Motivation](https://github.com/Simplyalex99/OpenReview/tree/feat#motivation)
 10. [Challenges](https://github.com/Simplyalex99/OpenReview/tree/feat#challenges)
 11. [API](https://github.com/Simplyalex99/OpenReview/tree/feat#api)
@@ -203,9 +203,9 @@ The rbf kernel comes into play by transforming the data into higher dimensions t
    Lastly, people who enjoy coffee and tea also enjoy breakfast and brunch, donuts, coffee roasteries, and kombucha.
    For new businesses, this can help give an idea of what makes some business good and related products.
 
-## Tech-Stack & Languages
+## Tech-Stack
 
-For this project I used the following:
+For this project I used the following langauges and tech-stack:
 
 _Frontend_ : Next.js, Typescript, Sass.
 
