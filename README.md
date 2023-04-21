@@ -21,13 +21,8 @@ OpenReview is a machine learning app that uses natural language processing to sa
 
 ## Set-Up
 
-Clone the repository then install the dependencies by going inside the /frontend folder and run
 
-```
-npm install
-```
-
-Next, to launch the app go to the root of the directory and run the following command:
+To launch the app go to the root of the directory and run the following command:
 
 ```
 docker-compose build
@@ -36,7 +31,26 @@ docker-compose up
 
 OR
 
-Go to /frontend directory and run the following command:
+Clone the repository then install the dependencies by going inside the /frontend folder and run
+
+```
+npm install
+```
+
+Then run the following command inside /backend folder:
+
+```
+pip install -r requirements.txt
+```
+
+Then install redis in your local machine, then run
+
+```
+redis-server
+```
+
+
+Then go to the root of the directory and run the command:
 
 ```
 npm run dev
