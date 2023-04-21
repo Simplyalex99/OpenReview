@@ -21,7 +21,13 @@ OpenReview is a machine learning app that uses natural language processing to sa
 
 ## Set-Up
 
-Clone the repository, go to the root of the directory and run the following command:
+Clone the repository then install the dependencies by going inside the /frontend folder and run
+
+```
+npm install
+```
+
+Next, to launch the app go to the root of the directory and run the following command:
 
 ```
 docker-compose build
@@ -38,12 +44,16 @@ npm run dev
 
 This will launch the project at port 3000 (http://localhost:3000)
 
-To enable prettier auto formatting and lint testing run the following inside /frontend folder
+To enable prettier auto formatting run the command inside /frontend directory:
 
 ```
 npm run format:fix
+```
+
+To test run the following inside /frontend folder
+
+```
 npm run format
-npm run lint
 ```
 
 ## Project Summary
