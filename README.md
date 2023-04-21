@@ -9,7 +9,7 @@
 5. [Algorithms](https://github.com/Simplyalex99/OpenReview/tree/feat#algorithms)
 6. [Project Anaylsis](https://github.com/Simplyalex99/OpenReview/tree/feat#project-anaylsis)
 7. [Final Results](https://github.com/Simplyalex99/OpenReview/tree/feat#final-results)
-8. [Tech-Stack](https://github.com/Simplyalex99/OpenReview/tree/feat#tech-stack)
+8. [Tech-Stack](https://github.com/Simplyalex99/OpenReview/tree/feat#tech-stack/languages)
 9. [Motivation](https://github.com/Simplyalex99/OpenReview/tree/feat#motivation)
 10. [Challenges](https://github.com/Simplyalex99/OpenReview/tree/feat#challenges)
 11. [API](https://github.com/Simplyalex99/OpenReview/tree/feat#api)
@@ -206,6 +206,7 @@ The rbf kernel comes into play by transforming the data into higher dimensions t
 ## Tech-Stack/Languages
 
 For this project I used the following:
+
 _Frontend_ : Next.js, Typescript, Sass.
 
 _Backend_ : Flask, Redis.
