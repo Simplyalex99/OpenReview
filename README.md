@@ -46,7 +46,7 @@ pip install -r requirements.txt
 Then install redis in your local machine, then run
 
 ```
-redis-server
+redis-cli
 ```
 
 
