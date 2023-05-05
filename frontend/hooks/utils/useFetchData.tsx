@@ -53,7 +53,6 @@ export const useFetchData = (
   useEffect(() => {
     const cancelToken = axios.CancelToken.source();
     const url = baseURL + endpoint;
-    console.log(`url: ${url}`);
     dispatch({
       type: ACTIONS.MAKE_REQUEST,
       payload: { data: [], error: undefined },
@@ -67,7 +66,6 @@ export const useFetchData = (
         },
       })
       .then((res) => {
-        console.log(res.data);
         dispatch({
           type: ACTIONS.FINISHED_REQUEST,
           payload: { data: res.data, error: undefined },
