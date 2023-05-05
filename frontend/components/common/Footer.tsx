@@ -17,7 +17,7 @@ export const Footer = () => {
     >
       <div className={FooterStyles['footer-wrapper']}>
         <div className={FooterStyles['footer-icons']}>
-          <NavItem url={iconLinks.YOUTUBE}>
+          <NavItem href={iconLinks.YOUTUBE}>
             <YoutubeSVG
               className={`${
                 darkMode
@@ -26,7 +26,7 @@ export const Footer = () => {
               } ${FooterStyles['footer-icon']}`}
             />
           </NavItem>
-          <NavItem url={iconLinks.GITHUB}>
+          <NavItem href={iconLinks.GITHUB}>
             <GithubSVG
               className={`${
                 darkMode
@@ -35,7 +35,7 @@ export const Footer = () => {
               } ${FooterStyles['footer-icon']}`}
             />
           </NavItem>
-          <NavItem url={iconLinks.MEDIUM}>
+          <NavItem href={iconLinks.MEDIUM}>
             <MediumSVG
               className={`${
                 darkMode
@@ -50,13 +50,13 @@ export const Footer = () => {
             darkMode ? 'white' : 'black'
           }`}
         >
-          <NavItem url={links.HOME}>
+          <NavItem href={links.HOME}>
             <p className={FooterStyles['footer-link']}>Home</p>
           </NavItem>
-          <NavItem url={links.ABOUT}>
+          <NavItem href={links.ABOUT}>
             <p className={FooterStyles['footer-link']}>About</p>
           </NavItem>
-          <NavItem url={links.DASHBOARD}>
+          <NavItem href={links.DASHBOARD}>
             <p className={FooterStyles['footer-link']}>Dashboard</p>
           </NavItem>
         </div>
