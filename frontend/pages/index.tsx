@@ -112,7 +112,7 @@ const Home: NextPageWithLayout = () => {
             >
               <AccentSVG width="300" height="30" />
             </span>
-            <NavItem url="/404">
+            <NavItem href="/404">
               <div className={`${homeStyles['action-btn-wrapper']}`}>
                 <button
                   type="button"
@@ -216,7 +216,7 @@ const Home: NextPageWithLayout = () => {
                   about their products, how businesses are trending over any
                   period of time, and more.
                 </p>
-                <NavItem url="/404">
+                <NavItem href="/404">
                   <button
                     type="button"
                     className={`${
