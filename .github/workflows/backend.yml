@@ -3,8 +3,6 @@ on:
   push:
   pull_request:
     branches: [ main ]
-    paths:
-      - 'backend/**'
 jobs:
   linter_name:
     name: runner / black formatter
