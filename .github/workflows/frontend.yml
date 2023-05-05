@@ -6,22 +6,12 @@ on:
     paths:
       - 'frontend/**'
 jobs:
-  build:
-    name: Build
-    runs-on: ubuntu-18.04
-    strategy:
-      matrix:
-        node_version: [18]
-
+  test:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js ${{ matrix.node_version }}
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
         with:
-          node_version: ${{ matrix.node_version }}
-
-      - name: run CI
-        run: |
-          npm install # or yarn install
-          npm run lint # or yarn lint
-          npm run build # or yarn build
+          node-version: ${{ matrix.node-version }}
+      - run: npm install
+      - run: npm build
