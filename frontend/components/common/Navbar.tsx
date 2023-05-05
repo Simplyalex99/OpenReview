@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Link from 'next/link';
+import Link, { LinkProps } from 'next/link';
 import Switch from 'react-switch';
 import { HamburgerMenuSVG } from '../svg/common/HamburgerMenu';
 import { CloseSVG } from '../svg/common/Close';
@@ -15,13 +15,13 @@ import {
 } from '../../hooks/index';
 import homeStyles from '../../styles/pages/Home.module.scss';
 
-export interface NavItemProps {
-  url: string;
+export type NavItemProps = {
+  href: string;
   children: React.ReactNode;
-}
-export const NavItem = (props: NavItemProps) => {
-  const { url, children } = props;
-  return <Link href={url}>{children}</Link>;
+};
+export const NavItem = (props: NavItemProps & LinkProps) => {
+  const { children } = props;
+  return <Link {...props}>{children}</Link>;
 };
 
 export enum activeTabType {
@@ -95,7 +95,7 @@ export const Navbar = () => {
             />
           </div>
 
-          <NavItem url={links.HOME}>
+          <NavItem href={links.HOME}>
             <button
               type="button"
               className={` ${darkMode ? 'white' : 'dark'} ${
@@ -126,7 +126,7 @@ export const Navbar = () => {
             />
           </div>
           <div className={`${navbarStyles['links-wrapper']}`}>
-            <NavItem url={links.HOME}>
+            <NavItem href={links.HOME}>
               <div
                 role="presentation"
                 onClick={() => setActiveTab(activeTabType.HOME)}
@@ -142,7 +142,7 @@ export const Navbar = () => {
                 </button>
               </div>
             </NavItem>
-            <NavItem url={links.ABOUT}>
+            <NavItem href={links.ABOUT}>
               <div
                 role="presentation"
                 onClick={() => setActiveTab(activeTabType.ABOUT)}
@@ -158,7 +158,7 @@ export const Navbar = () => {
                 </button>
               </div>
             </NavItem>
-            <NavItem url={links.DASHBOARD}>
+            <NavItem href={links.DASHBOARD}>
               <div
                 onClick={() => setActiveTab(activeTabType.DASHBOARD)}
                 role="presentation"
