@@ -110,13 +110,21 @@ export const BusinessProfileCard = ({
                 query: { category: sampleCategory, name: title, address },
               }}
             >
-              <p className={businessProfileCardStyles['action-btn']}>
+              <p
+                className={`${businessProfileCardStyles['action-btn']} ${
+                  darkMode ? 'warm-blue-bg' : 'dark-blue-bg'
+                }`}
+              >
                 Select Option
               </p>
             </Link>
 
             <Link href={businessUrl}>
-              <p className={businessProfileCardStyles.link}>
+              <p
+                className={`${businessProfileCardStyles.link} ${
+                  darkMode ? 'warm-blue' : 'dark-blue'
+                }`}
+              >
                 Visit Webpage: <RightArrowSVG width="20" height="20" />
               </p>
             </Link>

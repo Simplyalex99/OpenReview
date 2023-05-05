@@ -1,20 +1,20 @@
 import { ReactNode } from 'react';
 import { Card } from './Card';
+import businessStatsStyle from '../../styles/components/BusinessStatsCard.module.scss';
 
 interface BusinessStatsCardProps {
   children?: ReactNode;
   title: string;
-  stat: number;
+  style?: string;
 }
 export const BusinessStatsCard = ({
   children,
   title,
-  stat,
+  style,
 }: BusinessStatsCardProps) => {
   return (
-    <Card>
-      <p>{title}</p>
-      <p>{stat}</p>
+    <Card style={style}>
+      <p className={businessStatsStyle['sub-heading']}>{title}</p>
       {children}
     </Card>
   );
