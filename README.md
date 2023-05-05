@@ -488,6 +488,12 @@ _Data_ :
 			business_id: string,
 			business_name: string,
 			business_rating: number,
+            address: string,
+            city:string,
+            total_reviews: number,
+            category: string,
+            url: string
+
 		},
 	];
 
