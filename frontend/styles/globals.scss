@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500&display=swap');
 :root {
-  --dark: #171821;
+  --dark: #121518;
   --white: white;
   --black: black;
   --purple: #602bf8;
+  --green: rgba(84, 214, 183, 1);
+  --dark-blue: #0d6efd;
+  --warm-blue: #0084ff;
 }
 html,
 body {
@@ -38,6 +41,18 @@ a {
 .white {
   color: var(--white);
 }
+.purple-- {
+  color: var(--purple);
+}
+.green-- {
+  color: var(--green);
+}
+.warm-blue {
+  color: var(--warm-blue);
+}
+.dark-blue {
+  color: var(--dark-blue);
+}
 .dark-bg {
   background: var(--dark);
 }
@@ -50,10 +65,35 @@ a {
 .black-bg {
   background: var(--black);
 }
+.dark-blue-bg {
+  background: var(--dark-blue);
+}
+.warm-blue-bg {
+  background: var(--warm-blue);
+}
 .dark-gradient-bg {
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0.45) 0%,
     rgba(0, 0, 0, 0.0225) 100%
   );
+}
+.wrapper {
+  margin: 8em 2em 0em 2em;
+  .custom-search-wrapper {
+    width: 100%;
+    margin: auto;
+    margin-bottom: 1em;
+    max-width: 500px;
+  }
+}
+
+@media (min-width: 600px) {
+  .wrapper {
+    margin: 8em 10em 0em 10em;
+    .custom-search-wrapper {
+      width: 100%;
+      max-width: 500px;
+    }
+  }
 }
