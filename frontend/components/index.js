@@ -30,3 +30,6 @@ export { SearchSection } from './sections/dashboard/SearchSection';
 export { HeadingSection } from './sections/dashboard/HeadingSection';
 export { StatsSection } from './sections/dashboard/StatsSection';
 export { SEO } from './common/SEO';
+export { withSearch, SearchPropsType } from './utils/withSearch';
+export { withLayout } from './utils/withLayout';
+export { Pagination } from './utils/PaginationComponent';
