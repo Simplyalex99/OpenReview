@@ -1,23 +1,19 @@
 import React, { useState } from 'react';
 import ClipLoader from 'react-spinners/ClipLoader';
-import URLTypesEnum from '../../enums/types';
 import dashboardSearchStyles from '../../styles/pages/DashboardSearch.module.scss';
 import {
-  PrimaryLayout,
   NextPageWithLayout,
   BusinessProfileCard,
   AbstractPatternSVG,
   SemiCirclePatternSVG,
-  SearchSection,
+  withSearch,
   SEO,
+  SearchPropsType,
+  withLayout,
+  Pagination,
 } from '../../components';
 import { objectKeyToArray } from '../../helpers';
-import {
-  useFormInput,
-  usePosition,
-  useFetchData,
-  useAppSelector,
-} from '../../hooks';
+import { useAppSelector, usePaginationHelper } from '../../hooks';
 
 type Categories = {
   title: string;
@@ -36,12 +32,11 @@ interface Businesses {
   rating: number;
   location: Location;
 }
+
 interface BusinessJSON {
   businesses?: Array<Businesses>;
 }
-interface AutoCompleteJSON {
-  terms?: object[];
-}
+
 interface BusinessesSectionProps {
   businesses: Businesses[];
 }
@@ -68,62 +63,42 @@ const BusinessesSection = ({ businesses }: BusinessesSectionProps) => {
   );
 };
 
-const DashboardSearch: NextPageWithLayout = () => {
-  const { AUTOCOMPLETE_URL, SEARCH_BUSINESSES_URL } = URLTypesEnum;
-  const { latitude, longitude } = usePosition();
-  const [formInput, onChangeHandler, setFormInput] = useFormInput();
-  const [endpoint, setEndpoint] = useState('');
-  const [searchQuery, setSearchQuery] = useState('');
-  const [searchTerm, setSearchTerm] = useState('');
+export const DashboardSearch = (props: SearchPropsType) => {
+  const { businessResponse, searchTerm } = props;
   const stateTheme = useAppSelector((state) => state.themeReducer);
   const { darkMode } = stateTheme;
-  const autoCompleteResponse = useFetchData(AUTOCOMPLETE_URL, endpoint);
-  const businessesResponse = useFetchData(SEARCH_BUSINESSES_URL, searchQuery);
-  const businessJSON: BusinessJSON = businessesResponse?.data ?? {};
+  const businessJSON: BusinessJSON = businessResponse?.data ?? {};
   const businesses: Businesses[] = businessJSON.businesses ?? [];
-  const autoCompleteJSON: AutoCompleteJSON = autoCompleteResponse?.data ?? {};
-  const terms = autoCompleteJSON?.terms ?? undefined;
-
-  const suggestions = terms ? objectKeyToArray(terms, 'text') : [];
-  const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChangeHandler(e);
-    const queryURL = `?text=${formInput}&latitude=${latitude}&longitude=${longitude}`;
-    setEndpoint(queryURL);
+  const [currentPage, setCurrentPage] = useState(1);
+  const onClickPageHandler = (page: number) => {
+    setCurrentPage(page);
   };
 
-  const suggestionsHandler = (name: string) => {
-    setFormInput(name);
-  };
-  const searchHandler = () => {
-    const searchResultsLimit = 3;
-    const query = `?term=${formInput}&latitude=${latitude}&longitude=${longitude}&limit=${searchResultsLimit}`;
-    setSearchTerm(formInput);
-    setSearchQuery(query);
-  };
+  const businessesPerPage = 3;
+  const {
+    filterData,
+    maxPages,
+  }: { filterData: Businesses[]; maxPages: number } = usePaginationHelper(
+    businessesPerPage,
+    currentPage,
+    businesses
+  );
+
   return (
     <>
       <SEO title="Search" description="Search businesses from anywhere" />
-      <div className={`${dashboardSearchStyles.wrapper}`}>
+      <div className={dashboardSearchStyles.wrapper}>
         <div className={dashboardSearchStyles['abstract-wrapper']}>
           <AbstractPatternSVG />
         </div>
         <div className={dashboardSearchStyles['semi-circle-wrapper']}>
           <SemiCirclePatternSVG />
         </div>
-        <div className={`${dashboardSearchStyles['search-wrapper']}`}>
-          <SearchSection
-            formInput={formInput}
-            suggestionsHandler={suggestionsHandler}
-            inputHandler={inputHandler}
-            searchHandler={searchHandler}
-            suggestions={suggestions}
-          />
-        </div>
 
         <div className={dashboardSearchStyles['spinner-icon']}>
           <ClipLoader
             color={darkMode ? '#FFFFFF' : '#909090'}
-            loading={businessesResponse.loading}
+            loading={businessResponse.loading}
             size={150}
             aria-label="Loading Spinner"
           />
@@ -138,19 +113,31 @@ const DashboardSearch: NextPageWithLayout = () => {
             >
               Search results for &apos; <span>{searchTerm}</span> &apos;
             </p>
-            <BusinessesSection businesses={businesses} />
+            <BusinessesSection businesses={filterData} />
           </>
         ) : (
-          <p className={dashboardSearchStyles['error-message']}>
+          <p
+            className={`${dashboardSearchStyles['error-message']} ${
+              darkMode ? 'white' : 'black'
+            }`}
+          >
             Not available
           </p>
+        )}
+        {searchTerm.length !== 0 && businesses.length !== 0 && (
+          <Pagination
+            currentPage={currentPage}
+            totalPages={maxPages}
+            onChange={onClickPageHandler}
+          />
         )}
       </div>
     </>
   );
 };
+export const DashboardSearchPage = withSearch(
+  DashboardSearch
+) as NextPageWithLayout;
 
-export default DashboardSearch;
-DashboardSearch.getLayout = (page) => {
-  return <PrimaryLayout>{page}</PrimaryLayout>;
-};
+export default DashboardSearchPage;
+DashboardSearchPage.getLayout = withLayout();
