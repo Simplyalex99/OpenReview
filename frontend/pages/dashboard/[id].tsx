@@ -1,66 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { GetServerSideProps } from 'next';
 import dashboardStyles from '../../styles/pages/Dashboard.module.scss';
 import {
-  PrimaryLayout,
   NextPageWithLayout,
-  SearchSection,
+  NullComponent,
+  withLayout,
+  withSearch,
   HeadingSection,
   StatsSection,
-  NullComponent,
 } from '../../components';
-import {
-  useAppSelector,
-  useFormInput,
-  useFetchData,
-  usePosition,
-} from '../../hooks';
-import { fetcher, customFetcher, objectKeyToArray } from '../../helpers';
-import URLTypesEnum, { BASE_URL } from '../../enums/types';
+import { useAppSelector } from '../../hooks';
+import { fetcher, customFetcher } from '../../helpers';
+import UrlApiTypesEnum, { BASE_URL } from '../../enums/types';
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const businessID = context.params?.id ?? '';
-  const category = context.query?.category ?? '';
-  const businessName = context.query?.name ?? '';
-  const businessAddress = context.query?.address ?? '';
-  const {
-    REVIEW_TOPICS_URL,
-    CATEGORIES_RECOMMENDATION_URL,
-    POPULAR_RECOMMENDATION_URL,
-    BUSINESS_SUCCESS_URL,
-  } = URLTypesEnum;
-  const httpMethod = 'POST';
-  const token = undefined;
-  const endpoint1 = BASE_URL + `/${businessID}/reviews`;
-  const customerReviewsJSON = await fetcher(endpoint1);
-  const reviewTopicsData = await customFetcher(
-    REVIEW_TOPICS_URL,
-    token,
-    httpMethod,
-    customerReviewsJSON
-  );
-  const endpoint2 = `${POPULAR_RECOMMENDATION_URL}?category=${category}`;
-  const popularBusinessesData = await fetcher(endpoint2);
-  const endpoint3 = `${CATEGORIES_RECOMMENDATION_URL}?category=${category}`;
-  const businessCategoriesData = await fetcher(endpoint3);
-  const businessPredictionData = await customFetcher(
-    BUSINESS_SUCCESS_URL,
-    token,
-    httpMethod,
-    customerReviewsJSON
-  );
-
-  return {
-    props: {
-      customerReviews: reviewTopicsData,
-      popularBusinesses: popularBusinessesData,
-      businessCategories: businessCategoriesData,
-      businessPrediction: businessPredictionData,
-      businessName,
-      businessAddress,
-    },
-  };
-};
 interface CustomerReviewsProps {
   total: number;
   reviews: [
@@ -100,101 +52,102 @@ interface PopularBusinessProps {
 interface BusinessCategoriesProps {
   categories: Array<string>;
 }
-interface BusinessProps {
+type BusinessProps = {
   customerReviews?: CustomerReviewsProps;
   popularBusinesses?: PopularBusinessProps;
   businessCategories?: BusinessCategoriesProps;
   businessPrediction?: BusinessPredictionProps;
   businessName?: string;
   businessAddress?: string;
-}
-
-interface AutoCompleteJSON {
-  terms?: object[];
-}
-
-const buildSectionComponents = ({
+};
+const Dashboard: NextPageWithLayout = ({
   businessPrediction,
   businessName,
   businessAddress,
-}: BusinessProps) => {
-  let HeadingComponent;
-  if (businessName && businessAddress) {
-    HeadingComponent = (
-      <HeadingSection
-        businessName={businessName}
-        businessAddress={businessAddress}
-      />
-    );
-  } else {
-    HeadingComponent = <NullComponent />;
-  }
-  let StatsComponent;
-  if (businessPrediction) {
-    StatsComponent = (
-      <StatsSection
-        positiveReviews={businessPrediction.positive_reviews}
-        negativeReviews={businessPrediction.negative_reviews}
-      />
-    );
-  } else {
-    StatsComponent = <NullComponent />;
-  }
-
-  return [HeadingComponent, StatsComponent];
-};
-
-const Dashboard: NextPageWithLayout = (props) => {
-  const stateTheme = useAppSelector((state) => state.themeReducer);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
+  customerReviews,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
+  popularBusinesses,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
+  businessCategories,
+}: BusinessProps) => {
+  const stateTheme = useAppSelector((state) => state.themeReducer);
   const { darkMode } = stateTheme;
-  const [endpoint, setEndpoint] = useState('');
-  const { AUTOCOMPLETE_URL } = URLTypesEnum;
-  const { latitude, longitude } = usePosition();
-  const [formInput, onChangeHandler, setFormInput] = useFormInput();
-  const autoCompleteResponse = useFetchData(AUTOCOMPLETE_URL, endpoint);
-
-  const autoCompleteJSON: AutoCompleteJSON = autoCompleteResponse?.data ?? {};
-  const terms = autoCompleteJSON?.terms ?? undefined;
-
-  const suggestions = terms ? objectKeyToArray(terms, 'text') : [];
-  const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChangeHandler(e);
-    const queryURL = `?text=${formInput}&latitude=${latitude}&longitude=${longitude}`;
-    setEndpoint(queryURL);
-  };
-
-  const suggestionsHandler = (name: string) => {
-    setFormInput(name);
-  };
-  const searchHandler = () => {
-    const searchResultsLimit = 3;
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
-    const query = `?term=${formInput}&latitude=${latitude}&longitude=${longitude}&limit=${searchResultsLimit}`;
-  };
-  // check if object is null and if use let SectionX = Null if is undfined else = Section. Do this for each.
-  const [HeadingComponent, StatsComponent] = buildSectionComponents(props);
+  const HeadingComponent = businessName ? (
+    <HeadingSection
+      businessName={businessName}
+      businessAddress={businessAddress}
+    />
+  ) : (
+    <NullComponent />
+  );
+  const StatsComponent = businessPrediction ? (
+    <StatsSection
+      positiveReviews={businessPrediction.positive_reviews}
+      negativeReviews={businessPrediction.negative_reviews}
+      businessIsSuccessful={businessPrediction.successful}
+      darkMode={darkMode}
+    />
+  ) : (
+    <NullComponent />
+  );
   return (
     <div className={dashboardStyles.wrapper}>
-      <section className={dashboardStyles['search-wrapper']}>
-        <SearchSection
-          formInput={formInput}
-          searchHandler={searchHandler}
-          suggestions={suggestions}
-          suggestionsHandler={suggestionsHandler}
-          inputHandler={inputHandler}
-        />
-      </section>
       <section
         className={`${dashboardStyles.heading} ${darkMode ? 'white' : 'black'}`}
       >
         {HeadingComponent}
       </section>
-      <section>{StatsComponent}</section>
+      <section className={dashboardStyles['grid-container']}>
+        {StatsComponent}
+      </section>
     </div>
   );
 };
-export default Dashboard;
-Dashboard.getLayout = (page) => {
-  return <PrimaryLayout>{page}</PrimaryLayout>;
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const businessID = context.params?.id ?? '';
+  const category = context.query?.category ?? '';
+  const businessName = context.query?.name ?? '';
+  const businessAddress = context.query?.address ?? '';
+  const {
+    REVIEW_TOPICS_URL,
+    CATEGORIES_RECOMMENDATION_URL,
+    POPULAR_RECOMMENDATION_URL,
+    BUSINESS_SUCCESS_URL,
+  } = UrlApiTypesEnum;
+  const httpMethod = 'POST';
+  const token = undefined;
+  const endpoint1 = BASE_URL + `/${businessID}/reviews`;
+  const customerReviewsJSON = await fetcher(endpoint1);
+  const reviewTopicsData = await customFetcher(
+    REVIEW_TOPICS_URL,
+    token,
+    httpMethod,
+    customerReviewsJSON
+  );
+  const endpoint2 = `${POPULAR_RECOMMENDATION_URL}?category=${category}`;
+  const popularBusinessesData = await fetcher(endpoint2);
+  const endpoint3 = `${CATEGORIES_RECOMMENDATION_URL}?category=${category}`;
+  const businessCategoriesData = await fetcher(endpoint3);
+  const businessPredictionData = await customFetcher(
+    BUSINESS_SUCCESS_URL,
+    token,
+    httpMethod,
+    customerReviewsJSON
+  );
+
+  return {
+    props: {
+      customerReviews: reviewTopicsData,
+      popularBusinesses: popularBusinessesData,
+      businessCategories: businessCategoriesData,
+      businessPrediction: businessPredictionData,
+      businessName,
+      businessAddress,
+    },
+  };
 };
+
+export const DashboardPage = withSearch(Dashboard) as NextPageWithLayout;
+export default DashboardPage;
+DashboardPage.getLayout = withLayout();
