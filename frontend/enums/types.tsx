@@ -13,4 +13,27 @@ export enum UrlPages {
   HOME_PATH = '/',
 }
 
+export const enum FilterOptions {
+  TOPICS = 'topics',
+  RATING = 'rating',
+  SENTIMENT = 'sentiment',
+}
+export const SentimentOptionsEnum = Object.freeze({
+  POSITIVE: 'positive',
+  NEGATIVE: 'negative',
+});
+export const TopicOptionsEnum = Object.freeze({
+  FOOD: 'food',
+  EXPERIENCE: 'experience',
+  OTHERS: 'others',
+  SERVICES: 'services',
+});
+export const RatingOptionsEnum = Object.freeze({
+  EXCELLENT: 5,
+  GOOD: 4,
+  AVERAGE: 3,
+  POOR: 2,
+  TERRIBLE: 1,
+});
+
 export default UrlApiTypesEnum;
