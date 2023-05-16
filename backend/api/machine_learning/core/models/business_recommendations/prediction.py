@@ -36,7 +36,9 @@ def get_popular_businesses_by_category(business_category):
     if counter >= max_size:
       break
     business_info = {'business_id':row['business_id'],'business_name':row['business_name'],'business_rating':row['business_rating']
-    ,'total_reviews':row['business_rating_count'],'category':row['category'],'address':row['address'],'url':row['url'],'city':row['city']}
+    ,'total_reviews':row['business_rating_count'],'category':row['category'],'address':row['address'],'url':row['url'],'city':row['city'],
+    'img_url':row['imgUrl']
+    }
     results.append(business_info)
     counter+=1
   return results   
