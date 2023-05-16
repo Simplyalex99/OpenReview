@@ -12,6 +12,7 @@ import {
   NextPageWithLayout,
   NavItem,
   SEO,
+  Button,
 } from '../components/index';
 import {
   toggleDarkMode,
@@ -23,13 +24,13 @@ import {
   useAppDispatch,
   useScrollOut,
 } from '../hooks/index';
+import { UrlPages } from '../enums/types';
 
 const Home: NextPageWithLayout = () => {
   const stateTheme = useAppSelector((state) => state.themeReducer);
   const { darkMode } = stateTheme;
   const dispatch = useAppDispatch();
   const ref = useRef<HTMLDivElement>(null);
-
   useParallaxEffect(ref, {
     speed: 4,
     center: true,
@@ -112,9 +113,9 @@ const Home: NextPageWithLayout = () => {
             >
               <AccentSVG width="300" height="30" />
             </span>
-            <NavItem href="/404">
+            <NavItem href={UrlPages.DASHBOARD_SEARCH_PATH}>
               <div className={`${homeStyles['action-btn-wrapper']}`}>
-                <button
+                <Button
                   type="button"
                   className={` ${homeStyles['action-btn']} ${
                     darkMode
@@ -123,7 +124,7 @@ const Home: NextPageWithLayout = () => {
                   }`}
                 >
                   Find Reviews
-                </button>
+                </Button>
               </div>
             </NavItem>
             <div
@@ -186,7 +187,7 @@ const Home: NextPageWithLayout = () => {
                   theme for you. To change themes, toggle the lightmode/darkmode
                   button on the navigation.
                 </p>
-                <button
+                <Button
                   type="button"
                   className={`${
                     darkMode
@@ -195,9 +196,8 @@ const Home: NextPageWithLayout = () => {
                   }`}
                   onClick={toggleHandler}
                 >
-                  {' '}
                   Try it
-                </button>
+                </Button>
               </div>
             </div>
             <div
@@ -216,8 +216,8 @@ const Home: NextPageWithLayout = () => {
                   about their products, how businesses are trending over any
                   period of time, and more.
                 </p>
-                <NavItem href="/404">
-                  <button
+                <NavItem href={UrlPages.DASHBOARD_SEARCH_PATH}>
+                  <Button
                     type="button"
                     className={`${
                       darkMode
@@ -226,7 +226,7 @@ const Home: NextPageWithLayout = () => {
                     }`}
                   >
                     Let&apos;s start
-                  </button>
+                  </Button>
                 </NavItem>
               </div>
             </div>
