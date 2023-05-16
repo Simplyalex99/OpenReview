@@ -12,7 +12,7 @@ import {
   withLayout,
   Pagination,
 } from '../../components';
-import { objectKeyToArray } from '../../helpers';
+import { objectKeyToArray } from '../../utils';
 import { useAppSelector, usePaginationHelper } from '../../hooks';
 
 type Categories = {
@@ -56,6 +56,7 @@ const BusinessesSection = ({ businesses }: BusinessesSectionProps) => {
             address={business.location.address1}
             city={business.location.city}
             dashboardUrl={`/dashboard/${business.id}`}
+            isResponsive
           />
         );
       })}
@@ -70,6 +71,7 @@ export const DashboardSearch = (props: SearchPropsType) => {
   const businessJSON: BusinessJSON = businessResponse?.data ?? {};
   const businesses: Businesses[] = businessJSON.businesses ?? [];
   const [currentPage, setCurrentPage] = useState(1);
+
   const onClickPageHandler = (page: number) => {
     setCurrentPage(page);
   };
