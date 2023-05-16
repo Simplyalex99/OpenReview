@@ -3,7 +3,8 @@ import { useAppSelector } from '../../hooks/redux/useReduxHooks';
 import { YoutubeSVG } from '../svg/icons/Youtube';
 import { MediumSVG } from '../svg/icons/Medium';
 import { GithubSVG } from '../svg/icons/Github';
-import { NavItem, links, socialMediaLinks as iconLinks } from './Navbar';
+import { NavItem, socialMediaLinks as iconLinks } from './Navbar';
+import { UrlPages } from '../../enums/types';
 
 export const Footer = () => {
   const stateTheme = useAppSelector((state) => state.themeReducer);
@@ -50,13 +51,13 @@ export const Footer = () => {
             darkMode ? 'white' : 'black'
           }`}
         >
-          <NavItem href={links.HOME}>
+          <NavItem href={UrlPages.HOME_PATH}>
             <p className={FooterStyles['footer-link']}>Home</p>
           </NavItem>
-          <NavItem href={links.ABOUT}>
+          <NavItem href="/404">
             <p className={FooterStyles['footer-link']}>About</p>
           </NavItem>
-          <NavItem href={links.DASHBOARD}>
+          <NavItem href={UrlPages.DASHBOARD_SEARCH_PATH}>
             <p className={FooterStyles['footer-link']}>Dashboard</p>
           </NavItem>
         </div>

@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useFetchData, useFormInput, usePosition } from '../../hooks';
 import UrlApiTypesEnum, { UrlPages } from '../../enums/types';
-import { objectKeyToArray, queryBuilder } from '../../helpers';
-import { SearchSection } from '../sections/dashboard/SearchSection';
+import { objectKeyToArray, queryBuilder } from '../../utils';
+import { SearchSection } from '../sections/SearchSection';
 
 interface AutoCompleteJSON {
   terms?: object[];
@@ -54,7 +54,9 @@ export const withSearch = <P extends object>(Component: React.FC<P>) => {
     const terms = autoCompleteJSON?.terms ?? undefined;
     const businessesResponse = useFetchData(SEARCH_BUSINESSES_URL, searchQuery);
 
-    const suggestions = terms ? objectKeyToArray(terms, 'text') : [];
+    const suggestions = terms
+      ? (objectKeyToArray(terms, 'text') as Array<string>)
+      : [];
 
     const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
       onChangeHandler(e);
