@@ -3,14 +3,14 @@
 }
 .wrapper {
   margin: 2em 2em 22em 2em;
-  .grid-container {
-    display: grid;
-    justify-content: center;
-  }
+  display: grid;
+  justify-content: center;
+  row-gap: 4.5em;
+
   .search-wrapper {
     width: 90%;
     margin: auto;
-    margin-bottom: 4em;
+    margin-bottom: 10em;
   }
   .heading {
     text-align: center;
@@ -29,6 +29,9 @@
     .search-wrapper {
       width: 100%;
       max-width: 500px;
+    }
+
+    .grid-container-2 {
     }
   }
 }
