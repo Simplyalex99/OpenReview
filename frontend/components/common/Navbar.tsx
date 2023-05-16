@@ -14,6 +14,7 @@ import {
   useAppDispatch,
 } from '../../hooks/index';
 import homeStyles from '../../styles/pages/Home.module.scss';
+import { UrlPages } from '../../enums/types';
 
 export type NavItemProps = {
   href: string;
@@ -24,16 +25,12 @@ export const NavItem = (props: NavItemProps & LinkProps) => {
   return <Link {...props}>{children}</Link>;
 };
 
-export enum activeTabType {
+export enum ActiveTabType {
   HOME = 'HOME',
   ABOUT = 'ABOUT',
   DASHBOARD = 'DASHBOARD',
 }
-export const links: { [key: string]: string } = {
-  HOME: '/',
-  ABOUT: '/',
-  DASHBOARD: '/',
-};
+
 export const socialMediaLinks: { [key: string]: string } = {
   YOUTUBE: 'https://www.youtube.com/channel/UCGDWxLAOJIxCRSjsUSkpSeQ',
   MEDIUM:
@@ -45,8 +42,8 @@ export const Navbar = () => {
   const stateTheme = useAppSelector((state) => state.themeReducer);
   const dispatch = useAppDispatch();
   const { darkMode } = stateTheme;
-  const [activeTab, setActiveTab] = useState(activeTabType.HOME);
-  const getIsActive = (type: activeTabType) => {
+  const [activeTab, setActiveTab] = useState(ActiveTabType.HOME);
+  const getIsActive = (type: ActiveTabType) => {
     return activeTab === type ? navbarStyles['active-tab'] : '';
   };
   const switchHandler = () => {
@@ -95,7 +92,7 @@ export const Navbar = () => {
             />
           </div>
 
-          <NavItem href={links.HOME}>
+          <NavItem href={UrlPages.HOME_PATH}>
             <button
               type="button"
               className={` ${darkMode ? 'white' : 'dark'} ${
@@ -126,51 +123,51 @@ export const Navbar = () => {
             />
           </div>
           <div className={`${navbarStyles['links-wrapper']}`}>
-            <NavItem href={links.HOME}>
+            <NavItem href={UrlPages.HOME_PATH}>
               <div
                 role="presentation"
-                onClick={() => setActiveTab(activeTabType.HOME)}
+                onClick={() => setActiveTab(ActiveTabType.HOME)}
                 className={`${navbarStyles['nav-item-wrapper']}`}
               >
                 <button
                   type="button"
-                  className={`${getIsActive(activeTabType.HOME)} ${
+                  className={`${getIsActive(ActiveTabType.HOME)} ${
                     navbarStyles['nav-item']
                   } ${darkMode ? 'white' : 'black'}`}
                 >
-                  <span>{activeTabType.HOME}</span>
+                  <span>{ActiveTabType.HOME}</span>
                 </button>
               </div>
             </NavItem>
-            <NavItem href={links.ABOUT}>
+            <NavItem href="/404">
               <div
                 role="presentation"
-                onClick={() => setActiveTab(activeTabType.ABOUT)}
+                onClick={() => setActiveTab(ActiveTabType.ABOUT)}
                 className={`${navbarStyles['nav-item-wrapper']} `}
               >
                 <button
                   type="button"
-                  className={`${getIsActive(activeTabType.ABOUT)} ${
+                  className={`${getIsActive(ActiveTabType.ABOUT)} ${
                     navbarStyles['nav-item']
                   } ${darkMode ? 'white' : 'black'} `}
                 >
-                  <span> {activeTabType.ABOUT}</span>{' '}
+                  <span> {ActiveTabType.ABOUT}</span>{' '}
                 </button>
               </div>
             </NavItem>
-            <NavItem href={links.DASHBOARD}>
+            <NavItem href={UrlPages.DASHBOARD_SEARCH_PATH}>
               <div
-                onClick={() => setActiveTab(activeTabType.DASHBOARD)}
+                onClick={() => setActiveTab(ActiveTabType.DASHBOARD)}
                 role="presentation"
                 className={`${navbarStyles['nav-item-wrapper']}`}
               >
                 <button
                   type="button"
-                  className={`${getIsActive(activeTabType.DASHBOARD)} ${
+                  className={`${getIsActive(ActiveTabType.DASHBOARD)} ${
                     navbarStyles['nav-item']
                   } ${darkMode ? 'white' : 'black'} `}
                 >
-                  <span> {activeTabType.DASHBOARD} </span>
+                  <span> {ActiveTabType.DASHBOARD} </span>
                 </button>
               </div>
             </NavItem>
