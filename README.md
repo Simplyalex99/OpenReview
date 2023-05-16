@@ -5,15 +5,11 @@
 1. [Description](https://github.com/Simplyalex99/OpenReview/tree/feat#description)
 2. [Set-Up](https://github.com/Simplyalex99/OpenReview/tree/feat#set-up)
 3. [Project Summary](https://github.com/Simplyalex99/OpenReview/tree/feat#project-summary)
-4. [Data Description](https://github.com/Simplyalex99/OpenReview/tree/feat#data-description)
-5. [Algorithms](https://github.com/Simplyalex99/OpenReview/tree/feat#algorithms)
-6. [Project Anaylsis](https://github.com/Simplyalex99/OpenReview/tree/feat#project-anaylsis)
-7. [Final Results](https://github.com/Simplyalex99/OpenReview/tree/feat#final-results)
-8. [Tech-Stack](https://github.com/Simplyalex99/OpenReview/tree/feat#tech-stack)
-9. [Motivation](https://github.com/Simplyalex99/OpenReview/tree/feat#motivation)
-10. [Challenges](https://github.com/Simplyalex99/OpenReview/tree/feat#challenges)
-11. [API](https://github.com/Simplyalex99/OpenReview/tree/feat#api)
-12. [Status Code](https://github.com/Simplyalex99/OpenReview/tree/feat#status-code)
+4. [Tech-Stack](https://github.com/Simplyalex99/OpenReview/tree/feat#tech-stack)
+5. [Motivation](https://github.com/Simplyalex99/OpenReview/tree/feat#motivation)
+6. [Challenges](https://github.com/Simplyalex99/OpenReview/tree/feat#challenges)
+7. [API](https://github.com/Simplyalex99/OpenReview/tree/feat#api)
+
 
 ## Description
 
