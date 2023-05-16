@@ -60,7 +60,7 @@ a {
   background: var(--white);
 }
 .purple-bg {
-  background: var(--purple);
+  background: var(--purple) !important;
 }
 .black-bg {
   background: var(--black);
@@ -69,7 +69,7 @@ a {
   background: var(--dark-blue);
 }
 .warm-blue-bg {
-  background: var(--warm-blue);
+  background: var(--warm-blue) !important;
 }
 .dark-gradient-bg {
   background: linear-gradient(
@@ -77,6 +77,9 @@ a {
     rgba(0, 0, 0, 0.45) 0%,
     rgba(0, 0, 0, 0.0225) 100%
   );
+}
+.text-center {
+  text-align: center;
 }
 .wrapper {
   margin: 8em 2em 0em 2em;
