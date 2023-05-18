@@ -1,0 +1,46 @@
+.container {
+  margin-bottom: 8em;
+}
+.wrapper {
+  margin: 2em 2em 22em 2em;
+  display: grid;
+  justify-content: center;
+  row-gap: 4.5em;
+
+  .search-wrapper {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 10em;
+  }
+  .heading {
+    text-align: center;
+    h2 {
+      margin-bottom: 0.5em;
+    }
+    p {
+      margin-top: 0;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .wrapper {
+    margin: 2em 10em 22em 10em;
+    .search-wrapper {
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .grid-container-2 {
+    }
+  }
+}
+
+@media (min-width: 940px) {
+  .wrapper {
+    row-gap: 6em;
+    margin: 2em 6em 22em 6em;
+  }
+}
+@media (min-width: 1100px) {
+}

@@ -7,11 +7,12 @@ dictionary = joblib.load('./api/machine_learning/assets/models/lda_model_diction
   @Args:
     data (list[list[str]]): the preprocessed data from customers for the model.
     reviews (list[list[str]]): the customer reviews.
+    ratings (list[list[int]]): the customer ratings.
   @Returns:
     List[Mapping[str: any]]: A list of dictionary of prediction results defined by the
         model.
 """
-def classify_data_top2_category(data,reviews):
+def classify_data_top2_category(data):
   category_dict = {
     0:"others",
     1:"food" ,
@@ -20,7 +21,6 @@ def classify_data_top2_category(data,reviews):
 
     }
   results = []
-  review_index = 0
   for text in data:
     bow_vector = dictionary.doc2bow(text)
     top_category_records = sorted(lda_model[bow_vector], key=lambda tup: -1*tup[1])
@@ -34,9 +34,9 @@ def classify_data_top2_category(data,reviews):
     category2 = None
     if index2 in category_dict:
       category2 = category_dict[index2]
-    review = reviews[review_index][0]  
-    result= {'text':review,'categories':[category1,category2]}
-    review_index+=1
+    result= {'categories':[category1,category2]}
+
+
     results.append(result)
 
   return results      
