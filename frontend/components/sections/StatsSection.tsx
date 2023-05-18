@@ -3,6 +3,9 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import businessStatsStyle from '../../styles/components/BusinessStatsCard.module.scss';
 import { Card } from '../cards/Card';
+import { CircleSVG } from '../svg/other/Circle';
+import { CrossSVG } from '../svg/other/Cross';
+import { PlusSVG } from '../svg/other/Plus';
 
 interface StatsSectionProps {
   positiveReviews: number;
@@ -30,7 +33,21 @@ export const StatsSection = ({
       <div className={businessStatsStyle.card}>
         <div className={businessStatsStyle.shape1} />
         <div className={businessStatsStyle.shape2} />
-
+        <div className={businessStatsStyle.circle}>
+          <CircleSVG />
+        </div>
+        <div className={businessStatsStyle.circle2}>
+          <CircleSVG />
+        </div>
+        <div className={businessStatsStyle.cross1}>
+          <CrossSVG />
+        </div>
+        <div className={businessStatsStyle.plus}>
+          <PlusSVG />
+        </div>
+        <div className={businessStatsStyle.cross2}>
+          <CrossSVG />
+        </div>
         <Card
           className={`${backgroundColor} ${businessStatsStyle.wrapper} ${textColor}`}
         >
