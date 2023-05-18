@@ -24,6 +24,7 @@ export const SearchSection = ({
     <>
       <div className={`${dashboardStyles['searchbar-flex-container']}`}>
         <SearchBar
+          placeholder="Search Mcdonalds etc..."
           input={formInput}
           inputHandler={(e: React.ChangeEvent<HTMLInputElement>) =>
             inputHandler(e)
