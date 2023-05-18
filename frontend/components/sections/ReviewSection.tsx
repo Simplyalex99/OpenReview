@@ -9,7 +9,7 @@ import { UserReviewProps } from '../../typings/api.d';
 import reviewStyles from '../../styles/sections/Review.module.scss';
 import { objectKeyToArray } from '../../utils';
 import { ReviewCard } from '../shared/ReviewCard';
-
+import { SemiCirclePatternSVG } from '../svg/other/SemiCirclePattern';
 import {
   FilterOptions,
   RatingOptionsEnum,
@@ -357,6 +357,12 @@ export const ReviewSection: React.FC<ReviewSectionProps> = (props) => {
       >
         Select Filter
       </Button>
+      <div className={reviewStyles['semi-circle-wrapper1']}>
+        <SemiCirclePatternSVG />
+      </div>
+      <div className={reviewStyles['semi-circle-wrapper2']}>
+        <SemiCirclePatternSVG />
+      </div>
       {reviewsToShow.map((review) => {
         return (
           <ReviewCard
@@ -369,6 +375,7 @@ export const ReviewSection: React.FC<ReviewSectionProps> = (props) => {
           />
         );
       })}
+
       <Pagination
         onChange={pageHandler}
         currentPage={currentPage}
