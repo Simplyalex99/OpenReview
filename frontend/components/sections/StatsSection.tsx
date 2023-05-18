@@ -45,7 +45,6 @@ export const StatsSection = ({
                 style={{
                   color: statusColor,
                   fontWeight: 'bold',
-                  marginLeft: '5px',
                 }}
               >
                 {businessStatus}
