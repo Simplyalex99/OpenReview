@@ -6,9 +6,13 @@
   justify-content: center;
   gap: 10px;
 }
+.circle {
+  position: absolute;
+}
 @media (min-width: 940px) {
   .grid-container {
     grid-template-columns: repeat(3, 1fr);
     justify-content: space-between;
+    gap: 25px;
   }
 }

@@ -6,6 +6,13 @@
     max-width: 300px;
     height: auto;
     margin-bottom: 1.85em;
+    .circle,
+    .cross1,
+    .cross2,
+    .plus,
+    .circle2 {
+      display: none;
+    }
 
     .shape1 {
       height: 150px;
@@ -17,7 +24,8 @@
       top: 100px;
       left: -50px;
       z-index: -100;
-      transform: translate(340%, 240%);
+      transform: translate(340%, 280%);
+      right: auto;
     }
     .shape2 {
       height: 150px;
@@ -29,7 +37,7 @@
       bottom: 130px;
       right: -50px;
       z-index: -1;
-      transform: translate(-340%, -60%);
+      transform: translate(-340%, -40%);
     }
 
     .wrapper {
@@ -65,13 +73,47 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5em;
     .card {
+      .circle {
+        display: block;
+        position: absolute;
+        transform: translate(-20px, -10px);
+      }
+      .circle2 {
+        display: block;
+        position: absolute;
+        transform: translate(450px, -50px);
+        z-index: -1;
+      }
+      .cross1 {
+        display: block;
+        position: absolute;
+        transform: translate(890px, 300px);
+      }
+      .cross2 {
+        display: block;
+        position: absolute;
+        transform: translateY(300px);
+        svg {
+          path {
+            fill: #ffc263;
+          }
+        }
+      }
+      .plus {
+        display: block;
+        position: absolute;
+        transform: translate(970px, -15px);
+        svg {
+          path {
+            stroke: #ffc263;
+          }
+        }
+      }
       .shape1 {
-        transform: translate(400%, 240%);
+        display: none;
       }
       .shape2 {
-        //transform: translate(-450%, -60%);
-        bottom: 130px;
-        right: 200px;
+        display: none;
       }
     }
   }
