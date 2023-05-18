@@ -69,14 +69,33 @@
 .input-check-dark {
   accent-color: #6c63ff;
 }
+
+.semi-circle-wrapper1,
+.semi-circle-wrapper2 {
+  display: none;
+}
+
 @media (min-width: 940px) {
+  .semi-circle-wrapper2 {
+    display: block;
+    position: absolute;
+    z-index: -1;
+    transform: translate(800px, 600px) rotate(180deg);
+  }
+  .semi-circle-wrapper1 {
+    display: block;
+    position: absolute;
+    z-index: -1;
+    transform: translate(-50px);
+  }
+
   .controller-wrapper {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     .progress-container {
       max-width: 500px;
       grid-column-start: 1;
-      grid-column-end: 5;
+      grid-column-end: 4;
     }
     .form {
       display: flex;
@@ -87,6 +106,7 @@
         display: flex;
         flex-direction: column;
         text-transform: lowercase;
+        text-align: left;
         .control-heading {
           text-transform: none;
           font-weight: bold;
