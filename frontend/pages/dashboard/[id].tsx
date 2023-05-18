@@ -174,7 +174,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       },
     };
   } catch (err: any) {
-    throw new APIError();
+    console.log(err);
+    throw new APIError(err.message);
   }
 };
 
