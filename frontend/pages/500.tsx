@@ -24,19 +24,8 @@ const ServerErrorPage: NextPageWithLayout = () => {
       </section>
       <section className={errorStyles.content}>
         <h1 className={`${errorStyles.title} ${darkMode ? 'white' : 'black'}`}>
-          <span>Oops! </span>Something went wrong
+          <span>Oops! </span>Something went wrong: 500 Server Error
         </h1>
-        <div className={errorStyles['status-code-wrapper']}>
-          <p
-            className={`${errorStyles['status-code']} ${
-              darkMode
-                ? errorStyles['status-code-dark']
-                : errorStyles['status-code-light']
-            }`}
-          >
-            500
-          </p>
-        </div>
         <p
           className={`${errorStyles['sub-heading']}  ${
             darkMode ? 'white' : 'black'
