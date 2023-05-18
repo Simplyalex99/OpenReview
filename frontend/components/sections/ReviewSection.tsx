@@ -131,15 +131,97 @@ export const ReviewSection: React.FC<ReviewSectionProps> = (props) => {
   return (
     <section className={`text-center ${darkMode ? 'white' : 'black'}`}>
       <h2> Customer Reviews </h2>
-      <div className={reviewStyles['progress-container']}>
-        <ProgressReviewBars
-          fillColor={progressBarStyles.fillColor}
-          ratings={allRatings}
-          backgroundColor={progressBarStyles.backgroundColor}
-          fontSize="0.9rem"
-        />
+      <div className={reviewStyles['controller-wrapper']}>
+        <div className={reviewStyles['progress-container']}>
+          <ProgressReviewBars
+            fillColor={progressBarStyles.fillColor}
+            ratings={allRatings}
+            backgroundColor={progressBarStyles.backgroundColor}
+            fontSize="0.9rem"
+          />
+        </div>
+        <div className={reviewStyles.form}>
+          <div className={reviewStyles.control}>
+            <p className={reviewStyles['control-heading']}>Ratings</p>
+            {Object.keys(RatingOptionsEnum).map((key: string, index) => {
+              return (
+                <label htmlFor={key} className={reviewStyles.label}>
+                  {key}
+                  <input
+                    id={key}
+                    type="checkbox"
+                    value={
+                      RatingOptionsEnum[key as keyof typeof RatingOptionsEnum]
+                    }
+                    name="rating"
+                    onChange={(e) => onChangeRatings(e, index)}
+                    checked={checkedRatings[index]}
+                    className={`${
+                      darkMode
+                        ? reviewStyles['input-check-dark']
+                        : reviewStyles['input-check-light']
+                    }`}
+                  />
+                </label>
+              );
+            })}
+          </div>
+          <div className={reviewStyles.control}>
+            <p className={reviewStyles['control-heading']}>Topics</p>
+            {Object.keys(TopicOptionsEnum).map((key: string, index) => {
+              return (
+                <label htmlFor={key} className={reviewStyles.label}>
+                  {key}
+                  <input
+                    id={key}
+                    type="checkbox"
+                    value={
+                      TopicOptionsEnum[key as keyof typeof TopicOptionsEnum]
+                    }
+                    name="topics"
+                    onChange={(e) => onChangeTopics(e, index)}
+                    checked={checkedTopics[index]}
+                    className={`${
+                      darkMode
+                        ? reviewStyles['input-check-dark']
+                        : reviewStyles['input-check-light']
+                    }`}
+                  />
+                </label>
+              );
+            })}
+          </div>
+          <div className={reviewStyles.control}>
+            <p className={reviewStyles['control-heading']}>Sentiments</p>
+            {Object.keys(SentimentOptionsEnum).map((key: string, index) => {
+              return (
+                <label htmlFor={key} className={reviewStyles.label}>
+                  {key}
+                  <input
+                    id={key}
+                    type="checkbox"
+                    value={
+                      SentimentOptionsEnum[
+                        key as keyof typeof SentimentOptionsEnum
+                      ]
+                    }
+                    name="sentiment"
+                    onChange={(e) => onChangeSentiments(e, index)}
+                    checked={checkedSentiments[index]}
+                    className={`${
+                      darkMode
+                        ? reviewStyles['input-check-dark']
+                        : reviewStyles['input-check-light']
+                    }`}
+                  />
+                </label>
+              );
+            })}
+          </div>
+        </div>
       </div>
       <Modal
+        className={reviewStyles.modal}
         secondClassName={`${
           darkMode
             ? reviewStyles['close-icon-dark']
@@ -175,7 +257,11 @@ export const ReviewSection: React.FC<ReviewSectionProps> = (props) => {
                     name="rating"
                     onChange={(e) => onChangeRatings(e, index)}
                     checked={checkedRatings[index]}
-                    className={reviewStyles['input-check']}
+                    className={`${
+                      darkMode
+                        ? reviewStyles['input-check-dark']
+                        : reviewStyles['input-check-light']
+                    }`}
                   />
                 </label>
               );
@@ -209,7 +295,11 @@ export const ReviewSection: React.FC<ReviewSectionProps> = (props) => {
                     name="topics"
                     onChange={(e) => onChangeTopics(e, index)}
                     checked={checkedTopics[index]}
-                    className={reviewStyles['input-check']}
+                    className={`${
+                      darkMode
+                        ? reviewStyles['input-check-dark']
+                        : reviewStyles['input-check-light']
+                    }`}
                   />
                 </label>
               );
@@ -245,7 +335,11 @@ export const ReviewSection: React.FC<ReviewSectionProps> = (props) => {
                     name="sentiment"
                     onChange={(e) => onChangeSentiments(e, index)}
                     checked={checkedSentiments[index]}
-                    className={reviewStyles['input-check']}
+                    className={`${
+                      darkMode
+                        ? reviewStyles['input-check-dark']
+                        : reviewStyles['input-check-light']
+                    }`}
                   />
                 </label>
               );
