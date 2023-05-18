@@ -168,7 +168,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         customerReviews: mergedCustomerReviews,
         popularBusinesses: popularBusinessesData,
         businessCategories: businessCategoriesData,
-        businessPredictionResponse,
+        businessPrediction: businessPredictionResponse,
         businessName,
         businessAddress,
       },
