@@ -46,3 +46,21 @@
     grid-template-columns: repeat(5, 1fr);
   }
 }
+
+@media (min-width: 800px) {
+  .container {
+    .tag:nth-child(3n + 1) {
+      grid-column-start: unset;
+      grid-column-end: unset;
+    }
+    .tag:nth-child(3n + 2) {
+      grid-column-start: unset;
+      grid-column-end: unset;
+    }
+
+    .tag:nth-child(3n + 3) {
+      grid-column-start: auto;
+      grid-column-end: auto;
+    }
+  }
+}
