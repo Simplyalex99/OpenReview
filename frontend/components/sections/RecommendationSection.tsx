@@ -21,10 +21,7 @@ export const RecommendationSection = ({
 }: RecommendationSectionProps) => {
   const stateTheme = useAppSelector((state) => state.themeReducer);
   const { darkMode } = stateTheme;
-  /*   const maxTagsToDisplay = 6;
-  const lastIndex = Math.min(maxTagsToDisplay, categories.length);
-  const tagsToDisplay = categories.slice(0, lastIndex); */
-  const temp = ['a', 'b', 'c', 'd', 'e', 'f'];
+
   return (
     <section className={recommendationStyles.container}>
       <h2 className={`${darkMode ? 'white' : 'black'} text-center`}>
@@ -37,7 +34,7 @@ export const RecommendationSection = ({
         </p>
       )}
       <div className={recommendationStyles['grid-container']}>
-        {temp.map((category) => {
+        {categories.map((category) => {
           return <Tag category={category} />;
         })}
       </div>
