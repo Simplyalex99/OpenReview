@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://127.0.0.1:5000/businesses';
+export const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 const UrlApiTypesEnum = Object.freeze({
   AUTOCOMPLETE_URL: `${BASE_URL}/autocomplete`,
