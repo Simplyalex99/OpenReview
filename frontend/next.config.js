@@ -6,7 +6,6 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   experimental: {
-    nftTracing: true,
     images: {
       allowFutureImage: true,
     },
