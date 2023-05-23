@@ -1,0 +1,32 @@
+services:
+  - type: redis
+    name: or-prod-redis
+    ipAllowList: []
+
+  - type: web
+    name: or-prod-backend
+    env: python
+    envVars: 
+      - key: PYTHON_VERSION
+        value: 3.10.11
+    repo: https://github.com/Simplyalex99/OpenReview/tree/main
+    buildCommand: pip3 install -r requirements.txt --filter=backend
+    startCommand: gunicorn run:app
+    buildFilter:
+      paths:
+        - backend/**
+
+  - type: web
+    env: node
+    name: or-prod-frontend
+    repo: https://github.com/Simplyalex99/OpenReview/tree/main
+    buildCommand: npm run build --filter=frontend
+    startCommand: npm run start
+    buildFilter:
+      paths:
+        - frontend/**
+    envVars:
+      - key: NEXT_PUBLIC_API_HOST
+        from: or-prod-backend
+        type: web
+        property: host
