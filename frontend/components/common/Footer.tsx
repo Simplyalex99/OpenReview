@@ -3,7 +3,8 @@ import { useAppSelector } from '../../hooks/redux/useReduxHooks';
 import { YoutubeSVG } from '../svg/icons/Youtube';
 import { MediumSVG } from '../svg/icons/Medium';
 import { GithubSVG } from '../svg/icons/Github';
-import { NavItem, links, socialMediaLinks as iconLinks } from './Navbar';
+import { NavItem, socialMediaLinks as iconLinks } from './Navbar';
+import { UrlPages } from '../../enums/types';
 
 export const Footer = () => {
   const stateTheme = useAppSelector((state) => state.themeReducer);
@@ -17,7 +18,7 @@ export const Footer = () => {
     >
       <div className={FooterStyles['footer-wrapper']}>
         <div className={FooterStyles['footer-icons']}>
-          <NavItem url={iconLinks.YOUTUBE}>
+          <NavItem href={iconLinks.YOUTUBE}>
             <YoutubeSVG
               className={`${
                 darkMode
@@ -26,7 +27,7 @@ export const Footer = () => {
               } ${FooterStyles['footer-icon']}`}
             />
           </NavItem>
-          <NavItem url={iconLinks.GITHUB}>
+          <NavItem href={iconLinks.GITHUB}>
             <GithubSVG
               className={`${
                 darkMode
@@ -35,7 +36,7 @@ export const Footer = () => {
               } ${FooterStyles['footer-icon']}`}
             />
           </NavItem>
-          <NavItem url={iconLinks.MEDIUM}>
+          <NavItem href={iconLinks.MEDIUM}>
             <MediumSVG
               className={`${
                 darkMode
@@ -50,13 +51,13 @@ export const Footer = () => {
             darkMode ? 'white' : 'black'
           }`}
         >
-          <NavItem url={links.HOME}>
+          <NavItem href={UrlPages.HOME_PATH}>
             <p className={FooterStyles['footer-link']}>Home</p>
           </NavItem>
-          <NavItem url={links.ABOUT}>
+          <NavItem href="/404">
             <p className={FooterStyles['footer-link']}>About</p>
           </NavItem>
-          <NavItem url={links.DASHBOARD}>
+          <NavItem href={UrlPages.DASHBOARD_SEARCH_PATH}>
             <p className={FooterStyles['footer-link']}>Dashboard</p>
           </NavItem>
         </div>

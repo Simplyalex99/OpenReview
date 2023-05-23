@@ -14,11 +14,12 @@ export const useAutoComplete = (
       return;
     }
     const inputSize = userInput.length;
-    const filteredSuggestions = suggestions.filter(
-      (text) =>
+    const filteredSuggestions = suggestions.filter((text) => {
+      return (
         text.length >= inputSize &&
         text.toLowerCase().substring(0, inputSize) === userInput.toLowerCase()
-    );
+      );
+    });
     suggestionHandler(filteredSuggestions);
   };
   useEffect(() => {

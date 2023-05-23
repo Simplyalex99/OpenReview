@@ -1,0 +1,30 @@
+.flex-container {
+  display: flex;
+  align-items: center;
+  .text {
+    padding: 0;
+  }
+  .rating {
+    padding: 0;
+  }
+}
+
+.container {
+  height: 20px;
+  width: 100%;
+  background-color: #e0e0de;
+  border-radius: 50px;
+  margin: 10px;
+  .filler {
+    height: 100%;
+    width: auto;
+
+    border-radius: inherit;
+    text-align: 'right';
+    .label {
+      padding: 5px;
+      color: 'white';
+      font-weight: 'bold';
+    }
+  }
+}

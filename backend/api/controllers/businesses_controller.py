@@ -56,13 +56,11 @@ def getAutocomplete():
 def getBusinesses():
     keys = (
         "term",
-        "location",
         "latitude",
         "longitude",
         "radius",
         "limit",
         "sort_by",
-        "open_at",
     )
     params = {key: request.args.get(key) for key in keys}
     if keys[0] not in params or keys[2] not in params or keys[3] not in params:
@@ -79,7 +77,7 @@ def getBusinesses():
 # @route: /businesses/{id}/reviews
 
 def getReviews(id):
-    keys = ("locale","offset","limit","sort_by")
+    keys = ("limit","sort_by")
     params = {key: request.args.get(key) for key in keys}
     query= queryBuilder(params)
     url = BASE_URL + 'businesses/{}/reviews{}'.format(id,query)
@@ -92,21 +90,26 @@ def getReviews(id):
 
 # @route: /businesses/predictions/topics
 
-def getTopics(id):
+def getTopics():
     data=request.get_json()
     key_text = 'text'
     key_reviews = 'reviews'
     if key_reviews not in data:
         raise InvalidInputError()
     reviews = data['reviews']
+
     try:
-        reviews = split_attribute_to_2d_array(reviews,key_text)
-        data = preprocess_topics(reviews)
-        results = classify_data_top2_category(data,reviews)
-        response = {'reviews':results,'status':200}
-        return json.dumps(response)
+        reviews_2d = split_attribute_to_2d_array(reviews,key_text)
     except:
         raise InvalidInputError()
+    try:        
+        data = preprocess_topics(reviews_2d)
+        results = classify_data_top2_category(data)
+        response = {'topics':results,'status':200}
+        return json.dumps(response)
+    except Exception as e:
+        print(e)
+        raise Exception()
 
 
 # @route: /businesses/recommendations/categories
@@ -133,7 +136,7 @@ def getRecommendationsByPopularity():
 
 # @route: /businesses/predictions/business-success
 
-def getPredictions(id):
+def getPredictions():
     data=request.get_json()
     key_text = 'text'
     key_rating = 'rating'
@@ -141,14 +144,20 @@ def getPredictions(id):
     if key_reviews not in data:
         raise InvalidInputError()
     reviews = data['reviews']
+    texts= [[]]
+    ratings = [[]]
     try:
         texts = split_attribute_to_2d_array(reviews,key_text)
         ratings = split_attribute_to_2d_array(reviews,key_rating)
+    except:
+        raise InvalidInputError()
+    try:        
         data = [texts,ratings]
         data = preprocess_data(data)
         is_successful,total_positive_score,total_negative_score ,predictions  = predict_business_success(data)
-        response = {'successful':is_successful,'positiveReviews':total_positive_score,'negativeReviews':total_negative_score,prediction:predictions,'status':200}
+        response = {'successful':is_successful,'positive_reviews':total_positive_score,'negative_reviews':total_negative_score,'predictions':predictions,'status':200}
         return json.dumps(response)
-    except:
-        raise InvalidInputError()
+    except Exception as e:
+        print(e)
+        raise Exception()
 

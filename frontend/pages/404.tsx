@@ -38,7 +38,7 @@ const NotFoundPage: NextPageWithLayout = () => {
               : pageNotFoundStyles['black-arrow']
           }`}
         />
-        <NavItem url="/">
+        <NavItem href="/">
           <p
             className={`${pageNotFoundStyles['redirect-link']}  ${
               darkMode ? 'white' : 'black'

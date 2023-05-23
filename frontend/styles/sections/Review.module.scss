@@ -1,0 +1,123 @@
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  .input-check {
+    accent-color: #602bf8;
+  }
+  .label {
+    text-transform: lowercase;
+  }
+}
+.close {
+  float: left;
+}
+.filter-search {
+  cursor: pointer;
+  margin-bottom: 3em;
+}
+
+.filter-search-dark-mode {
+  background-color: #6c63ff;
+  border: 1px solid #6c63ff;
+}
+.close-icon-dark {
+  color: white;
+  background: #121518 !important;
+}
+.close-icon-light {
+  color: black;
+}
+.heading-light {
+  color: black;
+  svg {
+    polyline {
+      stroke: black;
+    }
+  }
+}
+.heading-dark {
+  color: white;
+  svg {
+    polyline {
+      stroke: white !important;
+    }
+  }
+}
+.dividor-dark,
+.dividor-light {
+  padding-bottom: 15px;
+}
+.dividor-light {
+  border-bottom: 2px solid #e6e6e6;
+}
+.dividor-dark {
+  border-bottom: 2px solid #2f343c;
+}
+.controller-wrapper {
+  display: unset;
+  .progress-container {
+    margin-bottom: 3em;
+  }
+  .form {
+    display: none;
+  }
+}
+.input-check-light {
+  accent-color: #602bf8;
+}
+.input-check-dark {
+  accent-color: #6c63ff;
+}
+
+.semi-circle-wrapper1,
+.semi-circle-wrapper2 {
+  display: none;
+}
+
+@media (min-width: 940px) {
+  .semi-circle-wrapper2 {
+    display: block;
+    position: absolute;
+    z-index: -1;
+    transform: translate(800px, 600px) rotate(180deg);
+  }
+  .semi-circle-wrapper1 {
+    display: block;
+    position: absolute;
+    z-index: -1;
+    transform: translate(-50px);
+  }
+
+  .controller-wrapper {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    .progress-container {
+      max-width: 500px;
+      grid-column-start: 1;
+      grid-column-end: 4;
+    }
+    .form {
+      display: flex;
+      grid-column-start: 5;
+      grid-column-end: -1;
+      justify-content: space-around;
+      .control {
+        display: flex;
+        flex-direction: column;
+        text-transform: lowercase;
+        text-align: left;
+        .control-heading {
+          text-transform: none;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  .filter-search {
+    display: none;
+  }
+  .modal {
+    display: none;
+  }
+}

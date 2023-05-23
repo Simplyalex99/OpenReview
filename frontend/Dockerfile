@@ -7,4 +7,4 @@ COPY --chown=app:app package*.json ./
 RUN npm install
 COPY --chown=app:app . .
 EXPOSE 3000
-CMD ["npm","run","dev"]
+CMD ["npm","run","start"]

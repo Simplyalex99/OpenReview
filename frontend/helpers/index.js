@@ -1,2 +1,2 @@
-export { fetcher } from './fetcher';
-export { objectKeyToArray } from './objectKeyToArray';
+export { filterUserReviews } from './filterUserReviews';
+export { buildFilterOptions } from './buildFilterOptions';

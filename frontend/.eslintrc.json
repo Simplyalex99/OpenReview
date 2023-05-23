@@ -10,6 +10,7 @@
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:import/typescript",
+    "plugin:prettier/recommended",
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
@@ -22,11 +23,11 @@
   },
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
-    "react/prop-types": 0,
+    "react/prop-types": "off",
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": ["error"],
     "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-explicit-any": "off",
     "react/jsx-filename-extension": [
       2,
       { "extensions": [".jsx", ".tsx", ".js"] }
@@ -62,7 +63,6 @@
     "@typescript-eslint/ban-types": "off",
     "no-empty": "off",
     "no-empty-pattern": "off",
-    "react/prop-types": "off",
     "accessor-pairs": "error",
     "array-bracket-newline": "off",
     "array-bracket-spacing": "error",
