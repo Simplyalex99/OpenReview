@@ -27,6 +27,7 @@ services:
         - frontend/**
     envVars:
       - key: NEXT_PUBLIC_API_HOST
-        from: or-prod-backend
-        type: web
-        property: host
+        fromService: 
+          name: or-prod-backend
+          type: web
+          property: host
