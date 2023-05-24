@@ -7,7 +7,7 @@ from api.controllers.businesses_controller import (
     getPredictions,
     getAutocomplete
 )
-from api import (app,cache)
+from run import (app,cache)
 
 @app.route("/businesses/autocomplete",methods=["GET"])
 @cache.cached(timeout=30,query_string=True)

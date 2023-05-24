@@ -1,4 +1,7 @@
-export const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
+const API_HOST = process.env.API_HOST;
+export const BASE_URL = process.env.API_HOST
+  ? `https://${API_HOST}.onrender.com/flask`
+  : process.env.NEXT_PUBLIC_API_URL;
 
 const UrlApiTypesEnum = Object.freeze({
   AUTOCOMPLETE_URL: `${BASE_URL}/autocomplete`,

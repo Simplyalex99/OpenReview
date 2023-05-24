@@ -16,7 +16,7 @@ from api.machine_learning.core.models.business_recommendations.prediction import
     get_business_types_by_category,
     get_popular_businesses_by_category,
 )
-from api import app
+from run import app
 from api.errors.templates.api_error import APIError
 from api.errors.templates.invalid_input_error import InvalidInputError
 from api.errors.templates.service_unavailable_error import ServiceUnavailableError
