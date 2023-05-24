@@ -7,6 +7,7 @@ services:
   - type: web
     name: or-prod-backend
     env: python
+    plan: free
     envVars: 
       - key: PYTHON_VERSION
         value: 3.10.11
@@ -20,6 +21,7 @@ services:
   - type: web
     env: node
     name: or-prod-frontend
+    plan: free
     repo: https://github.com/Simplyalex99/OpenReview/tree/main
     buildCommand: npm run build --filter=frontend
     startCommand: npm run start
