@@ -12,8 +12,8 @@ services:
       - key: PYTHON_VERSION
         value: 3.10.11
     repo: https://github.com/Simplyalex99/OpenReview.git
-    buildCommand: pip3 install -r requirements.txt --filter=backend
-    startCommand: gunicorn run:app
+    buildCommand: cd ./backend && pip3 install -r requirements.txt --filter=backend
+    startCommand: cd ./backend && gunicorn run:app
     buildFilter:
       paths:
         - backend/**
@@ -23,8 +23,8 @@ services:
     name: or-prod-frontend
     plan: free
     repo: https://github.com/Simplyalex99/OpenReview.git
-    buildCommand: npm run build --filter=frontend
-    startCommand: npm run start
+    buildCommand: cd ./frontend && npm run build --filter=frontend
+    startCommand: cd./frontend && npm run start
     buildFilter:
       paths:
         - frontend/**
