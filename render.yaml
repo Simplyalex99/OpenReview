@@ -23,8 +23,8 @@ services:
     name: or-prod-frontend
     plan: free
     repo: https://github.com/Simplyalex99/OpenReview.git
-    buildCommand: cd ./frontend && ls -a && npm install & npm run build --filter=frontend
-    startCommand: cd./frontend && npm run start
+    buildCommand: cd ./frontend && ls -a && npm install && npm run build
+    startCommand: cd ./frontend && npm run start
     buildFilter:
       paths:
         - frontend/**
