@@ -3,17 +3,26 @@
 ## Table Of Contents
 
 1. [Description](https://github.com/Simplyalex99/OpenReview/tree/feat#description)
-2. [Set-Up](https://github.com/Simplyalex99/OpenReview/tree/feat#set-up)
-3. [Project Summary](https://github.com/Simplyalex99/OpenReview/tree/feat#project-summary)
-4. [Tech-Stack](https://github.com/Simplyalex99/OpenReview/tree/feat#tech-stack)
-5. [Motivation](https://github.com/Simplyalex99/OpenReview/tree/feat#motivation)
-6. [Challenges](https://github.com/Simplyalex99/OpenReview/tree/feat#challenges)
-7. [API](https://github.com/Simplyalex99/OpenReview/tree/feat#api)
+2. [Demo](https://github.com/Simplyalex99/OpenReview/tree/feat#demo)
+3. [Set-Up](https://github.com/Simplyalex99/OpenReview/tree/feat#set-up)
+4. [Project Summary](https://github.com/Simplyalex99/OpenReview/tree/feat#project-summary)
+5. [Tech-Stack](https://github.com/Simplyalex99/OpenReview/tree/feat#tech-stack)
+6. [Motivation](https://github.com/Simplyalex99/OpenReview/tree/feat#motivation)
+7. [Challenges](https://github.com/Simplyalex99/OpenReview/tree/feat#challenges)
+8. [API](https://github.com/Simplyalex99/OpenReview/tree/feat#api)
 
 
 ## Description
 
 OpenReview is a machine learning app that uses natural language processing to save businesses time and money by providing categorized customer reviews on different local businesses and services, along with business competitors and category product recommendations and prediction of the business's success based on customer reviews and ratings.
+
+## Demo
+
+Please visit https://open-review.vercel.app/ to try the app. Below you will find an image preview of the app.
+![](https://github.com/Simplyalex99/OpenReview/blob/feat/docs/README_images/app/homepage.png | width=100)
+
+![](https://github.com/Simplyalex99/OpenReview/blob/feat/docs/README_images/app/dashboard.png  | width=100)
+
 
 ## Set-Up
 
