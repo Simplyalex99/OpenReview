@@ -25,7 +25,6 @@ import {
   useScrollOut,
 } from '../hooks/index';
 import { UrlPages } from '../enums/types';
-import image from '../public/images/experience.jpg';
 
 const Home: NextPageWithLayout = () => {
   const stateTheme = useAppSelector((state) => state.themeReducer);
@@ -66,7 +65,7 @@ const Home: NextPageWithLayout = () => {
           <SquaresSVG />
         </div>
         <Image
-          src={image}
+          src="/images/experience.jpg"
           alt="road"
           layout="fill"
           objectFit="cover"
