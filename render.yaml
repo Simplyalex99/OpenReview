@@ -17,20 +17,3 @@ services:
     buildFilter:
       paths:
         - backend/**
-
-  - type: web
-    env: node
-    name: or-prod-frontend
-    plan: free
-    repo: https://github.com/Simplyalex99/OpenReview.git
-    buildCommand: cd ./frontend && ls -a && npm install && npm run build
-    startCommand: cd ./frontend && npm run start
-    buildFilter:
-      paths:
-        - frontend/**
-    envVars:
-      - key: NEXT_PUBLIC_API_HOST
-        fromService: 
-          name: or-prod-backend
-          type: web
-          property: host
