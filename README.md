@@ -19,9 +19,12 @@ OpenReview is a machine learning app that uses natural language processing to sa
 ## Demo
 
 Please visit https://open-review.vercel.app/ to try the app. Below you will find an image preview of the app.
-![](https://github.com/Simplyalex99/OpenReview/blob/feat/docs/README_images/app/homepage.png | width=100)
 
-![](https://github.com/Simplyalex99/OpenReview/blob/feat/docs/README_images/app/dashboard.png  | width=100)
+
+<img src="https://github.com/Simplyalex99/OpenReview/blob/feat/docs/README_images/app/homepage.png " width="200" height="400" />
+
+
+<img src="https://github.com/Simplyalex99/OpenReview/blob/feat/docs/README_images/app/dashboard.png " width="200" height="400" />
 
 
 ## Set-Up
