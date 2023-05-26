@@ -14,17 +14,17 @@
 
 ## Description
 
-OpenReview is a machine learning app that uses natural language processing to save businesses time and money by providing categorized customer reviews on different local businesses and services, along with business competitors and category product recommendations and prediction of the business's success based on customer reviews and ratings.
+OpenReview is a machine learning app that uses natural language processing to save businesses time and money by predicting if the business will be successful, identifying business competitors, recommend highly correlated products that make other busineses successful, and categorizing customer reviews so employers can see how customer feel about their services and food etc.
 
 ## Demo
 
 Please visit https://open-review.vercel.app/ to try the app. Below you will find an image preview of the app.
 
 
-<img src="https://github.com/Simplyalex99/OpenReview/blob/feat/docs/README_images/app/homepage.png " width="500" height="400" />
+<img src="https://github.com/Simplyalex99/OpenReview/blob/feat/docs/README_images/app/homepage.png " width="600" height="400" />
 
 
-<img src="https://github.com/Simplyalex99/OpenReview/blob/feat/docs/README_images/app/dashboard.png " width="500" height="400" />
+<img src="https://github.com/Simplyalex99/OpenReview/blob/feat/docs/README_images/app/dashboard.png " width="600" height="400" />
 
 
 ## Set-Up
