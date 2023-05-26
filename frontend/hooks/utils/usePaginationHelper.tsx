@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { to } from 'react-spring';
 
 interface PaginationData {
   maxPages: number;
