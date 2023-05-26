@@ -12,8 +12,8 @@ import {
   withLayout,
   Pagination,
 } from '../../components';
-import { objectKeyToArray } from '../../utils';
-import { useAppSelector, usePaginationHelper } from '../../hooks';
+import { objectKeyToArray, getPaginationHelper } from '../../utils';
+import { useAppSelector } from '../../hooks';
 
 type Categories = {
   title: string;
@@ -75,12 +75,11 @@ export const DashboardSearch = (props: SearchPropsType) => {
   const onClickPageHandler = (page: number) => {
     setCurrentPage(page);
   };
-
   const businessesPerPage = 3;
   const {
     filterData,
     maxPages,
-  }: { filterData: Businesses[]; maxPages: number } = usePaginationHelper(
+  }: { filterData: Businesses[]; maxPages: number } = getPaginationHelper(
     businessesPerPage,
     currentPage,
     businesses
@@ -98,15 +97,17 @@ export const DashboardSearch = (props: SearchPropsType) => {
         </div>
 
         <div className={dashboardSearchStyles['spinner-icon']}>
-          <ClipLoader
-            color={darkMode ? '#FFFFFF' : '#909090'}
-            loading={businessResponse.loading}
-            size={150}
-            aria-label="Loading Spinner"
-          />
+          {businessResponse?.loading && (
+            <ClipLoader
+              color={darkMode ? '#FFFFFF' : '#909090'}
+              loading={businessResponse.loading}
+              size={150}
+              aria-label="Loading Spinner"
+            />
+          )}
         </div>
 
-        {businesses && searchTerm.length !== 0 ? (
+        {businesses && searchTerm?.length !== 0 ? (
           <>
             <p
               className={`${dashboardSearchStyles['search-status']} ${
@@ -140,6 +141,5 @@ export const DashboardSearch = (props: SearchPropsType) => {
 export const DashboardSearchPage = withSearch(
   DashboardSearch
 ) as NextPageWithLayout;
-
 export default DashboardSearchPage;
 DashboardSearchPage.getLayout = withLayout();
