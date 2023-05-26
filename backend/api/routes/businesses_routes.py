@@ -22,7 +22,6 @@ def index():
 @app.route("/businesses/<id>/reviews",methods=["GET"])
 @cache.cached(timeout=300, query_string=True)
 def reviews_route(id):
-    print('yesyyesyes')
     print(id)
     return getReviews(id)
 

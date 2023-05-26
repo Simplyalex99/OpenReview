@@ -10,7 +10,7 @@
 6. [Motivation](https://github.com/Simplyalex99/OpenReview/tree/feat#motivation)
 7. [Challenges](https://github.com/Simplyalex99/OpenReview/tree/feat#challenges)
 8. [API](https://github.com/Simplyalex99/OpenReview/tree/feat#api)
-
+9. [Deployment](https://github.com/Simplyalex99/OpenReview/tree/feat#deployment)
 
 ## Description
 
@@ -100,6 +100,9 @@ _Backend_ : Flask, Redis.
 
 _Deployment_ : Docker, Google Cloud Kubernetes.
 
+_Figma_ : [figma design](https://www.figma.com/file/Xza7TZVW0vgrO8imo9QKbD/OpenReview?type=design&node-id=0%3A1&t=oUCpQutoFKnzfrUt-1)
+
+
 ## Motivation
 
 I was inspired to create this app when I saw Yelp's website and Niarra Travel. I saw the opportunity to enchance yelp's review by tieing in natural language processing to find hidden customer review categories , reocmmendations and predicting business sucess. I also wanted to make a very beautiful and interactive website like Niarra Travel.
@@ -110,10 +113,16 @@ Some challenges I faced in this project so far includes:
 
 - Learning a new framework Next.js, Flask.
 - Learning TypeScript.
-- Facing many bugs and build issues :(.
+- Facing many bugs and build issues.
 - Tieing in Docker-compose and third party libraries.
 - Learning natural language processing.
 
 ## API
 
 See the  [API doc](https://github.com/Simplyalex99/OpenReview/blob/feat/docs/API.md) for more information.
+
+
+## Deployment
+
+Backend and redis is hosted on [render](https://render.com/) and the frontend is hosted on vercel. In the root 
+directory is a render.yaml file. For more information on this file please visit the [render.yaml documentation](https://render.com/docs/blueprint-spec).
