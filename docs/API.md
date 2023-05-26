@@ -1,6 +1,6 @@
 ## API
 
-On your local machine, all OpenReview API endpoints are under `http://localhost:5000/businesses`. Some of the endpoints use Yelp API with slight modifcation in the number of query params. You can refer to Yelp API at `https://docs.developer.yelp.com/docs/fusion-intro`. Below you will find more information about current endpoints.
+On your local machine, all OpenReview API endpoints are under `http://localhost:5000/businesses` locally. For production it is `https://or-prod-backend-vzyi.onrender.com/businesses`. Some of the endpoints use Yelp API with slight modifcation in the number of query params. You can refer to Yelp API at `https://docs.developer.yelp.com/docs/fusion-intro`. Below you will find more information about current endpoints.
 
 If an _invalid request_ is submitted, or some other error occurs, OpenReview API returns a JSON response in the following format:
 
