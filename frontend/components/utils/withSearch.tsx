@@ -25,7 +25,6 @@ type WithSearchTypeProps = {
 export const withSearch = <P extends object>(Component: React.FC<P>) => {
   return (props: WithSearchTypeProps & P) => {
     const { wrapperClassName, searchbarClassName } = props;
-
     const { AUTOCOMPLETE_URL, SEARCH_BUSINESSES_URL } = UrlApiTypesEnum;
     const { DASHBOARD_SEARCH_PATH } = UrlPages;
     const router = useRouter();
@@ -73,7 +72,6 @@ export const withSearch = <P extends object>(Component: React.FC<P>) => {
     };
 
     const searchHandler = () => {
-      console.log(` path: ${pathname}`);
       if (pathname !== DASHBOARD_SEARCH_PATH) {
         router.push({
           pathname: DASHBOARD_SEARCH_PATH,
